@@ -1,0 +1,41 @@
+Andrew: summarize the dictionaries or lists of the ingredients, tools, methods, and steps. 
+(write each dictionaries or lists into files)
+
+(1) spices file
+format1: 
+{"name1":"sub-catagory1","name2":"sub-catagory2"}
+
+format2:
+{
+   "sub-catagory1":["name1","name2"],
+   "sub-catagory2":["name3","name4"],
+}
+
+(2) protein file
+(3) carbohydrates file
+(4) Fats file
+(5) Tools
+format:one tool's name each line
+tools1
+tools2
+tools3
+(6)methods file
+format:one method's name each line
+methods1
+methods2
+methods3
+
+Jiahua: work on the code to parse the ingredients
+
+"Cook the chicken in a skillet for 5 minutes"
+tools[skillet]
+method[stovetop]
+ingredients[chicken]
+action["Cook the chicken in a skillet for 5 minutes"]
+
+"Cook the chicken in a skillet for 5 minutes on each side"
+tools[skillet]
+method[stovetop]
+ingredients[chicken]
+time[5 minutes, 5 mintues]
+action["Cook the chicken in a skillet for 5 minutes", "flip and cook for 5 minutes"]   
