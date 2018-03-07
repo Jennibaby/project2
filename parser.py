@@ -51,7 +51,8 @@ class parser(object):
                     quantity = float(sum(Fraction(q) for q in quantityTextList))
                     ingredientText = ingredientText.replace(quantityText.group(0),'')    
                     
-                
+
+            
             newIngredient["quantity"] = quantity
             # print (newIngredient["quantity"])
 
