@@ -6,40 +6,48 @@
             "quantity": [0.5],
             "measurement": ["cup", "cups"],
             "sub-catagory": ["general"],
-            "preparation": [],
-            "prep-description": []
+            "descriptor":[],
+            "preparation": []
         },
         {
             "name": ["Tumeric"],
             "quantity": [0.5],
             "measurement": ["cup", "cups"],
             "sub-catagory": ["indian"],
-            "preparation": [],
-            "prep-description": []
+            "descriptor":[],
+            "preparation": []
         }],
         "protein":[{
             "name": ["xxx"],
             "quantity": [0.5],
             "measurement": ["cup", "cups"],
             "sub-catagory": ["fish","red meat", "white meat", "vegitarian"],
-            "preparation": [],
-            "prep-description": []
+            "descriptor":[],
+            "preparation": []
         }],
         "carbohydrates":[{
             "name": ["xxx"],
             "quantity": [0.5],
             "measurement": ["cup", "cups"],
             "sub-catagory": [],
-            "preparation": [],
-            "prep-description": []
+            "descriptor":[],
+            "preparation": []
         }],
         "Fats":[{
             "name": ["Peanutbutter", "olive oil", "coconut oil"],
             "quantity": [0.5],
             "measurement": ["cup", "cups"],
             "sub-catagory": [],
-            "preparation": [],
-            "prep-description": []
+            "descriptor":[],
+            "preparation": []
+        }],
+        "Others":[{
+            "name": ["apple"],
+            "quantity": [],
+            "measurement": [],
+            "sub-catagory": [],
+            "descriptor":[],
+            "preparation": []
         }]
 
     },
@@ -64,17 +72,6 @@
     ]
 }
 
-"Cook the chicken in a skillet for 5 minutes"
-tools[skillet]
-method[stovetop]
-ingredients[chicken]
-action["Cook the chicken in a skillet for 5 minutes"]
 
-"Cook the chicken in a skillet for 5 minutes on each side"
-tools[skillet]
-method[stovetop]
-ingredients[chicken]
-time[5 minutes, 5 mintues]
-action["Cook the chicken in a skillet for 5 minutes", "flip and cook for 5 minutes"]   
 
     
