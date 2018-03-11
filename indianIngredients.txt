@@ -1,7 +1,7 @@
 Alanet Root
 Fennel Seed
 Asafoetida
-Red Chilli
+Red Chili
 Black Cardamom
 White Pepper
 Black Pepper
@@ -54,7 +54,6 @@ Pomegranate Seed
 Poppy Seed
 Fresh Hemp Canabis
 Saffron Pulp
-Saffron Pulp
 Salt
 Sesame Seed
 Star Anise
@@ -67,4 +66,4 @@ Green Chili Pepper
 Gum Tragacanth
 Inknut 
 Dried Red Chili Pepper
-Red Chilli Pepper 
+Red Chili Pepper
