@@ -11,3 +11,4 @@ if __name__ == '__main__':
     resPath = "output.json"
     test = parser.parser(url,spicesDictPath,proteinDictPath,carbohydratesDictPath,fatsDictPath,resPath)
     test.parserIngredient()
+    test.parserDirection()
