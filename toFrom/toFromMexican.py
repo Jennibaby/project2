@@ -2,13 +2,13 @@
 # if recepie contains spicy ingredients -> can add peppers and such
 mexican = (
     ("spanish rice", "white rice"),
-("anejo"),
-("asadero"),
-("chihuahua"),
-("cotija"),
-("queso fresco"),
-("queso de oaxaca"),
-("queso panela"),
+    ("anejo"),
+    ("asadero"),
+    ("chihuahua"),
+    ("cotija"),
+    ("queso fresco"),
+    ("queso de oaxaca"),
+    ("queso panela")
 )
 
 non_mexican = (
@@ -19,24 +19,25 @@ non_mexican = (
 ("parmesan"),
 ("ricotta", "french feta", "feta"),
 ("mozzarella"),
-("monterey jack"),
+("monterey jack")
 )
 
 # some ingredients are mexian but indicates spicy so we can add more mexican
 spicy_indicators = (
     ("Harissa", "Red chili paste", "sriracha", "tabasco"),
-("wasabi", "horseradish", "whole grain mustard", "ginger", "mustard powder"),
+    ("wasabi", "horseradish", "whole grain mustard", "ginger", "mustard powder"),
     ("dried thai chilies", "jalapeno", "peppercorns", "red chili flakes", "szechuan peppercorns", "gochujang", "aleppo pepper"),
     ("curry"),
     ("garlic powder", "chili powder", "cumin"),
-    ("oregano", "cilantro")
+    ("oregano", "cilantro", "chopped onion") # 2+ should occur, condiser removing
 )
 
+# Add to recepie
 spicy_additions = (
     (""), # TODO write in list if we think this is a good idea
     (""),
-    ("poblano pepper", "serano pepper", "habanero pepper"),
+    ("poblano pepper", "serano pepper", "habanero pepper"), # TODO list all pepers
     ("chile powder", "ancho chile powder"),
-    ("poblano pepper", "serano pepper", "habanero pepper"),
-    ("poblano pepper", "serano pepper", "habanero pepper", "jalapeno pepper"),
+    ("poblano pepper", "serano pepper", "habanero pepper"), # same list of peppers
+    ("chips and salsa on the side") # ("poblano pepper", "serano pepper", "habanero pepper", "jalapeno pepper"), # same list of peppers
 )
