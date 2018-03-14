@@ -14,13 +14,14 @@ class ingredient(object):
 
     def __init__(self,ingredientText):
         self.stopwords = nltk.corpus.stopwords.words('english') + list(string.punctuation)
-        self.ing = OrderedDict()
+        # self.ing = OrderedDict()
+        self.ing = {}
         self.ing["name"] = ""
         self.ing["quantity"] = ""
         self.ing["measurement"] = []
         self.ing["descriptor"] = []
         self.ing["preparation"] = []
-        self.ing["tag"] = None
+        self.ing["tag"] = ""
         
 
         quantityText = re.search('(\d+([\s\.\/\d]+)?)+', ingredientText)
@@ -33,6 +34,8 @@ class ingredient(object):
                 ingredientText = ingredientText.replace(quantityText.group(0),'')    
                 
 
+        if quantity == None:
+            quantity = 1
         
         self.ing["quantity"] = quantity
         # print (newIngredient["quantity"])
@@ -76,15 +79,11 @@ class ingredient(object):
 
 class parser(object):
 
-    def __init__(self,url,spicesDictPath,proteinDictPath,carbohydratesDictPath,fatsDictPath,resPath="output.json"):
+    def __init__(self,url,resPath="output.json"):
         self.res = {}
         self.text = requests.get(url).text
         self.soup = BeautifulSoup(self.text,"html.parser")
         self.res["URL"] = url
-        # self.spicesDict = self.readDict(spicesDictPath)
-        # self.proteinDict = self.readDict(proteinDictPath)
-        # self.fatsDict = self.readDict(fatsDictPath)
-        # self.carbohydratesDict = self.readDict(carbohydratesDictPath)
         self.stopwords = nltk.corpus.stopwords.words('english') + list(string.punctuation)
         self.ingredients = []
         self.directionList = []
@@ -97,7 +96,6 @@ class parser(object):
     def readDict(self,dictPath):
         with open(dictPath,'r') as f:
             resDict = json.load(f)
-        print (resDict)
         return resDict
 
     
@@ -114,104 +112,17 @@ class parser(object):
             ingredientText =  ingredientText.text.strip().encode('ascii').lower().decode()
             if len(ingredientText) == 0:
                 continue
-            print (ingredientText)
+            # print (ingredientText)
             newIngredient = ingredient(ingredientText)
 
             self.res["ingredients"].append(newIngredient.ing)
+            self.ingredients.append(newIngredient.ing["name"])
 
-
-
-            # quantityText = re.search('(\d+([\s\.\/\d]+)?)+', ingredientText)
-            # # print (quantityText)
-            # quantity = None
-            # if quantityText != None:
-            #     quantityTextList = quantityText.group(0).strip().split()
-            #     if quantityTextList != None or len(quantityTextList) != 0:
-            #         quantity = float(sum(Fraction(q) for q in quantityTextList))
-            #         ingredientText = ingredientText.replace(quantityText.group(0),'')    
-                    
-
-            
-            # newIngredient["quantity"] = quantity
-            # # print (newIngredient["quantity"])
-
-            # # print (ingredientText)
-
-            # tokens = nltk.tokenize.word_tokenize(ingredientText)
-            # # print (tokens)
-            # measurementList = []
-            # descriptorList = []
-            # preparationList = []
-
-            # for token in tokens:
-            #     if token in keyWords.unitsList:
-            #         measurement = token
-            #         if measurement in keyWords.unitsAbbrToFull:
-            #             measurement = keyWords[measurement]
-            #         measurementList.append(measurement)
-            #         ingredientText = ingredientText.replace(token,'')
-
-            #     if token in keyWords.descriptorList:
-            #         descriptorList.append(token)
-            #         ingredientText = ingredientText.replace(token,'')
-
-            #     if token in keyWords.preparationList:
-            #         preparationList.append(token)
-            #         ingredientText = ingredientText.replace(token,'')
-
-            # if measurement == None:
-            #     measurement = "unit"
-
-            # # print (measurementList)
-            # # print (descriptorList)
-            # # print (descriptorList)
-            
-            # newIngredient["measurement"] = measurementList
-            # newIngredient["descriptor"] = descriptorList
-            # newIngredient["preparation"] = preparationList
-
-            # tokens = nltk.tokenize.word_tokenize(ingredientText)
-            # totensList = []
-            # for token in tokens:
-            #     if token in self.stopwords or token in self.filterlist:
-            #         continue
-            #     totensList.append(token)
-                
-            
-            # newIngredient["name"] = (" ").join(totensList)
-            # print ("name")
-            # print (newIngredient["name"])
-
-
-
-            # self.ingredients.append(newIngredient["name"])
-
-
-            
-
-            # if newIngredient["name"] in self.spicesDict:
-            #     newIngredient["sub-catagory"] = self.spicesDict[newIngredient["name"]]
-            #     self.res["ingredients"]["spices"].append(newIngredient)
-            # elif newIngredient["name"] in self.proteinDict:
-            #     newIngredient["sub-catagory"] = self.proteinDict[newIngredient["name"]]
-            #     self.res["ingredients"]["protein"].append(newIngredient)
-            # elif newIngredient["name"] in self.fatsDict:
-            #     newIngredient["sub-catagory"] = self.fatsDict[newIngredient["name"]]
-            #     self.res["ingredients"]["fats"].append(newIngredient)
-            # elif newIngredient["name"] in self.carbohydratesDict:
-            #     newIngredient["sub-catagory"] = self.carbohydratesDict[newIngredient["name"]]
-            #     self.res["ingredients"]["carbohydrates"].append(newIngredient)
-            # else:
-            #     newIngredient["sub-catagory"] = None
-            #     self.res["ingredients"]["others"].append(newIngredient)
-
-
-            # print (newIngredient)
 
     
     def parserDirection(self):
         directionTextRaw = self.soup.find_all('span', {"class": "recipe-directions__list--item"})
-        self.res["steps"] = []
+        self.res["directions"] = []
         for directionText in directionTextRaw:
             directionText =  directionText.text.strip().encode('ascii').lower().decode()
             if directionText.strip() == "":
@@ -246,6 +157,7 @@ class parser(object):
                     toolsStep.append(t)
 
                 for ingred in self.ingredients:
+                    # print ("debug " + ingred + " " + t)
                     if t == ingred.split()[0]:
                         ingredientsStep.append(ingred)    
             
@@ -283,9 +195,9 @@ class parser(object):
             step["tools"] = toolsStep
             step["time"] = timesStep
             step["action"] = directionText
-            print ("each step:")
-            self.res["steps"].append(step)
-            print (step)
+            #print ("each step:")
+            self.res["directions"].append(step)
+            #print (step)
 
 
         self.tools = list(set(self.tools))
@@ -297,14 +209,14 @@ class parser(object):
         self.res["Methods"]["other method"] = self.methods
 
 
-        print ("tools")
-        print (self.tools)
-
-        print ("Primary cooking method")
-        print (self.primaryMethods)
-
-        print ("other method")
-        print (self.methods)
+        # print ("tools")
+        # print (self.tools)
+        #
+        # print ("Primary cooking method")
+        # print (self.primaryMethods)
+        #
+        # print ("other method")
+        # print (self.methods)
 
 
                     
