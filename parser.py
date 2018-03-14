@@ -22,10 +22,13 @@ class parser(object):
         self.fatsDict = self.readDict(fatsDictPath)
         self.carbohydratesDict = self.readDict(carbohydratesDictPath)
         self.stopwords = nltk.corpus.stopwords.words('english') + list(string.punctuation)
+        self.ingredients = []
         self.directionList = []
         self.tools = []
         self.methods = []
         self.primaryMethods = []
+        self.filterlist = ["and"]
+        
 
     def readDict(self,dictPath):
         with open(dictPath,'r') as f:
@@ -98,11 +101,17 @@ class parser(object):
             newIngredient["preparation"] = preparationList
 
             tokens = nltk.tokenize.word_tokenize(ingredientText)
+            totensList = []
             for token in tokens:
-                if token in self.stopwords:
-                    tokens.remove(token)
+                if token in self.stopwords or token in self.filterlist:
+                    continue
+                totensList.append(token)
+                
             
-            newIngredient["name"] = (" ").join(tokens)
+            newIngredient["name"] = (" ").join(totensList)
+            print ("name")
+            print (newIngredient["name"])
+            self.ingredients.append(newIngredient["name"])
             if newIngredient["name"] in self.spicesDict:
                 newIngredient["sub-catagory"] = self.spicesDict[newIngredient["name"]]
                 self.res["ingredients"]["spices"].append(newIngredient)
@@ -128,6 +137,8 @@ class parser(object):
         self.res["steps"] = []
         for directionText in directionTextRaw:
             directionText =  directionText.text.strip().encode('ascii').lower().decode()
+            if directionText.strip() == "":
+                continue
             self.directionList.append(directionText) 
             uniStepsTokens = nltk.tokenize.word_tokenize(directionText)
             bigrams = nltk.bigrams(uniStepsTokens)
@@ -157,7 +168,9 @@ class parser(object):
                     self.tools.append(t)
                     toolsStep.append(t)
 
-                
+                for ingred in self.ingredients:
+                    if t == ingred.split()[0]:
+                        ingredientsStep.append(ingred)    
             
             #bigram
             for t in bigramsStepsTokens:
@@ -176,11 +189,11 @@ class parser(object):
                     self.tools.append(t)
                     toolsStep.append(t)
                    
-            costTime = re.search(r'([\d\/\.]+)\s?(([\-to\d\/\. ]+)?)\s?(min(?:(?:utes?)?|.?)?|sec(?:(?:onds?)?|.?)?|h(?:(?:ours?|rs?.?)?))\s?(?:per side|each side)?',directionText)
-            if costTime != None:
-                timesStep.append(costTime.group(0).strip())
-            # for t in timeMatchList:
-            #     timesStep.append(t.group(0).strip())
+            timeMatchList = re.findall(r'([\d\/\.]+)\s?(([\-to\d\/\. ]+)?)\s?(min(?:(?:utes?)?|.?)?|sec(?:(?:onds?)?|.?)?|h(?:(?:ours?|rs?.?)?))\s?(?:per side|each side)?',directionText)
+            # if costTime != None:
+            #     timesStep.append(costTime.group(0).strip())
+            for t in timeMatchList:
+                timesStep.append(t[0].strip())
             
             step = {}
 
