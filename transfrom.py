@@ -278,8 +278,7 @@ class transform(object):
             cnt = 0
             for ing in self.newrecipe["ingredients"]:
                 flag = True
-                if ing["measurement"][0] in ["tablespoon", "tablespoons", "teaspoon", "teaspoons", "taste", "pinch",
-                                             "dash"] and cnt < len(mexicanSpicyList):
+                if ing["measurement"][0] in ["teaspoon", "teaspoons", "taste", "pinch","dash"] and cnt < len(mexicanSpicyList):
                     self.newrecipe["directions"] = self.updateingredForDirection(self.newrecipe["directions"],
                                                                                  copy.deepcopy(mexicanSpicyList[cnt]["name"]),
                                                                                  ing["name"])
@@ -337,20 +336,29 @@ class transform(object):
 
 
     def subMethods(self,subDict):
-        self.newrecipe = self.oldrecipe
+        self.newrecipe = copy.deepcopy(self.oldrecipe)
         newPrimaryList = []
         i = 1
         for pcm in self.newrecipe["Methods"]["Primary cooking method"]:
             if pcm in subDict:
                 newPrimaryList.append(subDict[pcm])
                 self.newrecipe["directions"] = self.updateMethodForDirection(self.newrecipe["directions"], subDict[pcm],pcm)
+
+                print ("sub:" + str(i))
+                print ("original method:")
+                utils.printDict(pcm)
+                print ("new method:")
+                utils.printDict(subDict[pcm])
+
                 i += 1
+
             else:
                 newPrimaryList.append(pcm)
 
 
 
-        self.newrecipe["Methods"]["Primary cooking method"] = newPrimaryList
+
+        self.newrecipe["Methods"]["Primary cooking method"] = list(set(newPrimaryList))
 
         # print (self.newrecipe)
         # print (json.dumps(self.newrecipe, indent=4))

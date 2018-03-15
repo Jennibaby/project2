@@ -133,37 +133,37 @@
         }
     },
     "Tools":[
-        "whisk",
-        "skillet",
+        "dish",
         "tablespoon",
+        "skillet",
         "saucepan",
         "wooden spoon",
-        "oven",
-        "dish",
-        "baking dish"
+        "baking dish",
+        "whisk",
+        "oven"
     ],
     "Methods":{
         "Primary cooking method":[
-            "broil",
-            "bake"
+            "bake",
+            "broil"
         ],
         "other method":[
-            "whisk",
-            "remove",
-            "cover",
-            "melt",
-            "flour",
+            "preheat",
             "layer",
-            "sprinkle",
-            "grease",
-            "arrange",
-            "pour",
-            "salt",
-            "thicken",
+            "melt",
             "stir",
+            "salt",
             "season",
             "heat",
-            "preheat"
+            "sprinkle",
+            "cover",
+            "whisk",
+            "remove",
+            "grease",
+            "flour",
+            "pour",
+            "arrange",
+            "thicken"
         ]
     },
     "steps":{
@@ -172,14 +172,14 @@
                 "butter"
             ],
             "methods":[
-                "grease",
-                "preheat"
+                "preheat",
+                "grease"
             ],
             "tools":[
-                "dish",
-                "oven",
                 "baking dish",
-                "tablespoon"
+                "dish",
+                "tablespoon",
+                "oven"
             ],
             "time":[],
             "action":"preheat oven to 350 degrees f (175 degrees c). grease a 9x13-inch baking dish with 1 tablespoon butter."
@@ -190,14 +190,14 @@
                 "salt pepper"
             ],
             "methods":[
-                "melt",
-                "salt",
+                "heat",
                 "season",
-                "heat"
+                "melt",
+                "salt"
             ],
             "tools":[
-                "skillet",
-                "tablespoon"
+                "tablespoon",
+                "skillet"
             ],
             "time":[
                 "3 to 5 minutes per side"
@@ -206,29 +206,29 @@
         },
         "3":{
             "ingredients":[
-                "mustard",
-                "flour",
                 "butter",
-                "thyme",
-                "salt pepper",
                 "chicken broth",
+                "salt pepper",
+                "thyme",
+                "flour",
+                "mustard",
                 "half-and-half"
             ],
             "methods":[
+                "melt",
+                "stir",
+                "salt",
+                "heat",
+                "season",
                 "whisk",
                 "remove",
-                "melt",
                 "flour",
-                "salt",
-                "thicken",
-                "stir",
-                "season",
-                "heat"
+                "thicken"
             ],
             "tools":[
-                "wooden spoon",
+                "saucepan",
                 "whisk",
-                "saucepan"
+                "wooden spoon"
             ],
             "time":[
                 "5 minutes"
@@ -237,16 +237,16 @@
         },
         "4":{
             "ingredients":[
-                "potatoes",
                 "cheese",
-                "onion"
+                "onion",
+                "potatoes"
             ],
             "methods":[
-                "cover",
+                "layer",
                 "sprinkle",
-                "arrange",
+                "cover",
                 "pour",
-                "layer"
+                "arrange"
             ],
             "tools":[
                 "dish",
@@ -265,8 +265,8 @@
                 "oven"
             ],
             "time":[
-                "1 hour",
-                "5 minutes"
+                "5 minutes",
+                "1 hour"
             ],
             "action":"bake in preheated oven for 1 hour. top dish with remaining cheddar cheese, switch oven to broil, and continue baking until the top is browned and bubbly, about 5 minutes."
         }

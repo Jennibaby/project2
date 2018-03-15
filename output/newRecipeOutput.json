@@ -130,144 +130,262 @@
                 "shredded",
                 "divided"
             ]
+        },
+        "12":{
+            "name":"poblano pepper",
+            "quantity":5.0,
+            "measurement":[
+                "tablespoons"
+            ],
+            "descriptor":[],
+            "preparation":[]
+        },
+        "13":{
+            "name":"thick-cut pork chops",
+            "quantity":6.0,
+            "measurement":[
+                "unit"
+            ],
+            "descriptor":[
+                "boneless"
+            ],
+            "preparation":[
+                "boneless"
+            ]
+        },
+        "14":{
+            "name":"serano pepper",
+            "quantity":1,
+            "measurement":[
+                "taste"
+            ],
+            "descriptor":[],
+            "preparation":[]
+        },
+        "15":{
+            "name":"habanero pepper",
+            "quantity":2.0,
+            "measurement":[
+                "teaspoons"
+            ],
+            "descriptor":[],
+            "preparation":[]
+        },
+        "16":{
+            "name":"chile-powder",
+            "quantity":2.0,
+            "measurement":[
+                "teaspoons"
+            ],
+            "descriptor":[],
+            "preparation":[]
+        },
+        "17":{
+            "name":"chile-powder",
+            "quantity":3.0,
+            "measurement":[
+                "tablespoons"
+            ],
+            "descriptor":[
+                "ancho"
+            ],
+            "preparation":[]
+        },
+        "18":{
+            "name":"chicken broth",
+            "quantity":2.0,
+            "measurement":[
+                "cups"
+            ],
+            "descriptor":[],
+            "preparation":[]
+        },
+        "19":{
+            "name":"half-and-half",
+            "quantity":0.5,
+            "measurement":[
+                "cup"
+            ],
+            "descriptor":[],
+            "preparation":[]
+        },
+        "20":{
+            "name":"potatoes",
+            "quantity":6.0,
+            "measurement":[
+                "unit"
+            ],
+            "descriptor":[],
+            "preparation":[
+                "peeled",
+                "thinly",
+                "sliced",
+                "divided"
+            ]
+        },
+        "21":{
+            "name":"onion",
+            "quantity":0.5,
+            "measurement":[
+                "cup"
+            ],
+            "descriptor":[],
+            "preparation":[
+                "diced",
+                "divided"
+            ]
+        },
+        "22":{
+            "name":"cheese",
+            "quantity":1.0,
+            "measurement":[
+                "cup"
+            ],
+            "descriptor":[
+                "cheddar"
+            ],
+            "preparation":[
+                "shredded",
+                "divided"
+            ]
         }
     },
     "Tools":[
-        "whisk",
-        "skillet",
+        "dish",
         "tablespoon",
+        "skillet",
         "saucepan",
         "wooden spoon",
-        "oven",
-        "dish",
-        "baking dish"
+        "baking dish",
+        "whisk",
+        "oven"
     ],
     "Methods":{
         "Primary cooking method":[
-            "broil",
-            "boil"
+            "bake",
+            "broil"
         ],
         "other method":[
-            "whisk",
-            "remove",
-            "cover",
-            "melt",
-            "flour",
+            "preheat",
             "layer",
-            "sprinkle",
-            "grease",
-            "arrange",
-            "pour",
-            "salt",
-            "thicken",
+            "melt",
             "stir",
+            "salt",
             "season",
             "heat",
-            "preheat"
+            "sprinkle",
+            "cover",
+            "whisk",
+            "remove",
+            "grease",
+            "flour",
+            "pour",
+            "arrange",
+            "thicken"
         ]
     },
     "steps":{
         "1":{
-            "ingredients":[
-                "butter"
+            "methods":[
+                "preheat",
+                "grease"
             ],
             "tools":[
-                "dish",
-                "oven",
                 "baking dish",
-                "tablespoon"
+                "dish",
+                "tablespoon",
+                "oven"
             ],
             "time":[],
-            "methods":[
-                "grease",
-                "preheat"
+            "ingredients":[
+                "serano pepper"
             ],
-            "action":" boil oven to 350 degrees f (175 degrees c). grease a 9x13-inch baking dish with 1 tablespoon butter."
+            "action":" preheat oven to 350 degrees f (175 degrees c). grease a 9x13-inch baking dish with 1 tablespoon butter."
         },
         "2":{
-            "ingredients":[
-                "butter",
-                "salt pepper"
+            "methods":[
+                "heat",
+                "season",
+                "melt",
+                "salt"
             ],
             "tools":[
-                "skillet",
-                "tablespoon"
+                "tablespoon",
+                "skillet"
             ],
             "time":[
                 "3 to 5 minutes per side"
             ],
-            "methods":[
-                "melt",
-                "salt",
-                "season",
-                "heat"
+            "ingredients":[
+                "serano pepper",
+                "serano pepper"
             ],
-            "action":" melt 1 tablespoon butter in a skillet over medium heat. season pork chops with salt and pepper; cook in skillet until browned, 3 to 5 minutes per side."
+            "action":" melt 1 tablespoon poblano serano pepper in a skillet over medium heat. season pork chops with serano pepper and pepper; cook in skillet until browned, 3 to 5 minutes per side."
         },
         "3":{
-            "ingredients":[
-                "mustard",
+            "methods":[
+                "melt",
+                "stir",
+                "salt",
+                "heat",
+                "season",
+                "whisk",
+                "remove",
                 "flour",
-                "butter",
-                "thyme",
-                "salt pepper",
-                "chicken broth",
-                "half-and-half"
+                "thicken"
             ],
             "tools":[
-                "wooden spoon",
+                "saucepan",
                 "whisk",
-                "saucepan"
+                "wooden spoon"
             ],
             "time":[
                 "5 minutes"
             ],
-            "methods":[
-                "whisk",
-                "remove",
-                "melt",
-                "flour",
-                "salt",
-                "thicken",
-                "stir",
-                "season",
-                "heat"
+            "ingredients":[
+                "serano pepper",
+                "chicken broth",
+                "serano pepper",
+                "chile-powder",
+                "chile-powder",
+                "habanero pepper",
+                "half-and-half"
             ],
-            "action":" melt remaining 3 tablespoons butter in a small saucepan over medium-high heat. stir mustard and thyme into the butter; season with salt and pepper. whisk flour into the butter mixture to make a thick paste. slowly whisk chicken broth and half-and-half into the paste mixture until smooth. continue to cook, stirring occasionally, until it begins to thicken into a sauce, about 5 minutes; remove from heat."
+            "action":" melt remaining 3 tablespoons poblano serano pepper in a small saucepan over medium-high heat. stir habanero pepper and chile-powder into the butter; season with serano pepper and pepper. whisk chile-powder into the poblano serano pepper mixture to make a thick paste. slowly whisk chicken broth and half-and-half into the paste mixture until smooth. continue to cook, stirring occasionally, until it begins to thicken into a sauce, about 5 minutes; remove from heat."
         },
         "4":{
-            "ingredients":[
-                "potatoes",
-                "cheese",
-                "onion"
+            "methods":[
+                "layer",
+                "sprinkle",
+                "cover",
+                "pour",
+                "arrange"
             ],
             "tools":[
                 "dish",
                 "baking dish"
             ],
             "time":[],
-            "methods":[
-                "cover",
-                "sprinkle",
-                "arrange",
-                "pour",
-                "layer"
+            "ingredients":[
+                "cheese",
+                "onion",
+                "potatoes"
             ],
-            "action":" cover the bottom of the prepared baking dish with about half the potato slices and diced onion. sprinkle about half the cheddar cheese over the potato mixture. arrange the pork chops over cheese layer. boil remaining potatoes and onion atop the pork chops. pour the sauce evenly over the potato mixture."
+            "action":" cover the bottom of the prepared baking dish with about half the potato slices and diced onion. sprinkle about half the cheddar cheese over the potato mixture. arrange the pork chops over cheese layer. layer remaining potatoes and onion atop the pork chops. pour the sauce evenly over the potato mixture."
         },
         "5":{
-            "ingredients":[
-                "cheese"
-            ],
+            "methods":[],
             "tools":[
                 "dish",
                 "oven"
             ],
             "time":[
-                "1 hour",
-                "5 minutes"
+                "5 minutes",
+                "1 hour"
             ],
-            "methods":[],
+            "ingredients":[
+                "cheese"
+            ],
             "action":" bake in preheated oven for 1 hour. top dish with remaining cheddar cheese, switch oven to broil, and continue baking until the top is browned and bubbly, about 5 minutes."
         }
     }
