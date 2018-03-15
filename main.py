@@ -52,6 +52,7 @@ press 2: do transformation\npress 3: show old recipe(you can also find the old r
             test.parserDirection()
             utils.printDict(utils.recipeAddNumber(test.res))
             utils.writeDict(utils.recipeAddNumber(test.res), resPath)
+            utils.printRecipeNL(test.res)
 
         elif select == '2':
             if url == None:
@@ -136,6 +137,7 @@ press 8: change cooking methods\n" \
                 transfromtest.subMethods(d)
                 # utils.printDict(utils.recipeAddNumber(transfromtest.newrecipe))
                 utils.writeDict(utils.recipeAddNumber(transfromtest.newrecipe), newRecipePath)
+
                 print ("REMINDER\nWe show the transformation operation above, if you want to see complete new recipe of this transformation, press 4\n")
 
             else:
@@ -150,6 +152,8 @@ press 8: change cooking methods\n" \
             if transfromtest == None:
                 print ("you have not done any transformation before")
                 continue
+
+            utils.printDict(utils.recipeAddNumber(transfromtest.newrecipe))
             utils.printDict(utils.recipeAddNumber(transfromtest.newrecipe))
         elif select == '0':
             break

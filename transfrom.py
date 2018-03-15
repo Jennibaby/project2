@@ -171,6 +171,8 @@ class transform(object):
         self.newrecipe["ingredients"] = newingredientlist
         if i == 1:
             print ("can not find anything that can change from Non-Vegetarian to Vegetarian")
+        else:
+            utils.printRecipeNL(self.newrecipe)
 
 
 
@@ -207,6 +209,8 @@ class transform(object):
         self.newrecipe["ingredients"] = newingredientlist
         if i == 1:
             print ("can not find anything that can change from Vegetarian to Non-Vegetarian")
+        else:
+            utils.printRecipeNL(self.newrecipe)
 
 
 
@@ -242,6 +246,8 @@ class transform(object):
 
         if i == 1:
             print ("can not find anything non-healthy that can change to something healthy")
+        else:
+            utils.printRecipeNL(self.newrecipe)
         self.newrecipe["ingredients"] = newingredientlist
 
 
@@ -298,6 +304,8 @@ class transform(object):
                 newingredientlist.append(ing)
         if i == 1:
             print ("can not find anything healthy that can change to something non-healthy")
+        else:
+            utils.printRecipeNL(self.newrecipe)
         self.newrecipe["ingredients"] = newingredientlist
 
     def toMexican(self):
@@ -372,6 +380,8 @@ class transform(object):
                     newingredientlist.append(ing)
         if i == 1:
             print ("can not find anything that can make recipe more mexican")
+        else:
+            utils.printRecipeNL(self.newrecipe)
 
         self.newrecipe["ingredients"] = newingredientlist
 
@@ -424,6 +434,8 @@ class transform(object):
 
         if i == 1:
             print ("can not find anything that can make recipe more indian")
+        else:
+            utils.printRecipeNL(self.newrecipe)
 
         self.newrecipe["ingredients"] = newingredientlist
 
@@ -457,6 +469,8 @@ class transform(object):
 
         if i == 1:
             print ("can not find anything that can make recipe easier")
+        else:
+            utils.printRecipeNL(self.newrecipe)
 
         self.newrecipe["ingredients"] = newingredientlist
 
@@ -518,8 +532,6 @@ class transform(object):
                 newPrimaryList.append(pcm)
 
 
-
-
         self.newrecipe["Methods"]["Primary cooking method"] = list(set(newPrimaryList))
 
         # print (self.newrecipe)
@@ -527,6 +539,8 @@ class transform(object):
 
         if i == 1:
             print ("can not find a cooking method that can be replaced")
+        else:
+            utils.printRecipeNL(self.newrecipe)
 
 
 
