@@ -1,25 +1,23 @@
 # TODO is there a way to detect type of recepie (would it be ok to add jalapeno to recepie for example which would be preferable to just trying to substitute a different peppers
 # if recepie contains spicy ingredients -> can add peppers and such
 mexican = (
-    ("spanish rice", "white rice"),
+    ("spanish rice"),
     ("anejo"),
     ("asadero"),
     ("chihuahua"),
     ("cotija"),
     ("queso fresco"),
-    ("queso de oaxaca"),
-    ("queso panela")
+    ("queso de oaxaca")
 )
 
 non_mexican = (
-("wild rice", "brown rice"),
+("rice"),
 ("romano"),
 ("teleme", "muenster", "provolone"),
-("monterey jack", "mild cheddar", "cheddar"),
+("monterey jack", "cheddar"),
 ("parmesan"),
-("ricotta", "french feta", "feta"),
-("mozzarella"),
-("monterey jack")
+("ricotta","feta"),
+("mozzarella")
 )
 
 # some ingredients are mexian but indicates spicy so we can add more mexican

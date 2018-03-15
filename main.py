@@ -14,8 +14,10 @@ if __name__ == '__main__':
     # print (test.res)
 
     transfromtest = transfrom.transform(test.res)
-    transfromtest.toVegetarian()
-    transfromtest.fromVegetarian()
+    # transfromtest.toVegetarian()
+    # transfromtest.fromVegetarian()
+    #transfromtest.toHealthy()
+    transfromtest.subMethods()
 
 
     # f = open("lists/non-meats.txt",'r')

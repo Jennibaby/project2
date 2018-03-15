@@ -1,100 +1,12 @@
 import parser
 from lists.meatlist import meatlist
 from lists.nonMeatList import nonMeatList
-
-tofu = parser.ingredient("sliced tofu")
-seitan = parser.ingredient("sliced seitan")
-tempeh = parser.ingredient("sliced tempeh")
-lentil = parser.ingredient("burger patty")
-mushroom = parser.ingredient("large portabella mushroom")
-texturedVegetableProtein = parser.ingredient("dry Textured Vegetable Protein")
-
-meatsubList = [tofu.ing,seitan.ing,tempeh.ing,lentil.ing,mushroom.ing,texturedVegetableProtein.ing]
-
-slicedBacon = parser.ingredient("slice of bacon")
-beef = parser.ingredient("ground beef")
-caribou = parser.ingredient("T-bone steak of caribou")
-chicken = parser.ingredient("chicken breast")
-salmon = parser.ingredient("fillet of salmon")
-duck = parser.ingredient("tenderloin of duck")
-halibut = parser.ingredient("fillet of halibut")
-ham = parser.ingredient("slice of pork loin")
-lamb = parser.ingredient("rib of lamb")
-mutton = parser.ingredient("fillet of mutton")
-pork = parser.ingredient("slice of pork loin")
-snapper = parser.ingredient("fillet of snapper")
-turkey = parser.ingredient("turkey breast")
-veal = parser.ingredient("fillet of veal")
-venison = parser.ingredient("steak of venison")
-walleye = parser.ingredient("fillet of walleye")
-yellowfinTuna = parser.ingredient("fillet of yellowfin tuna")
-
-nonMeatSubList = [slicedBacon.ing, beef.ing, caribou.ing, chicken.ing, salmon.ing, duck.ing, halibut.ing, ham.ing, lamb.ing, mutton.ing, pork.ing, snapper.ing, turkey.ing, veal.ing, venison.ing, walleye.ing, yellowfinTuna.ing]
+from subList import meatsubList, nonMeatSubList\
+    #, nonHealthyDict, healtyDict
+from nltk.stem.wordnet import WordNetLemmatizer
 
 
-bacon = parser.ingredient("Bacon")
-wBread = parser.ingredient("white bread")
-bCrumbs = parser.ingredient("Bread crumbs")
-butter = parser.ingredient("Butter")
-margarine = parser.ingredient("margarine")
-egg = parser.ingredient("Eggs")
-apFlour = parser.ingredient("all-purpose flour")
-gBeef = parser.ingredient("ground beef")
-iLettuce = parser.ingredient("iceberg lettuce")
-mayon = parser.ingredient("mayonnaise")
-eMilk = parser.ingredient("evaporated milk")
-wMilk = parser.ingredient("whole milk")
-pasta = parser.ingredient("pasta")
-wRice = parser.ingredient("white rice")
-sCream = parser.ingredient("sour cream")
-yogurt = parser.ingredient("yogurt")
-sugar = parser.ingredient("sugar")
-cChips = parser.ingredient("chocolate chips")
-vOil = parser.ingredient("vegetable oil")
-cCheese = parser.ingredient("cream cheese")
-
-
-
-cBacon = parser.ingredient("Canadian bacon")
-tBacon = parser.ingredient("turkey bacon")
-sTurkey = parser.ingredient("smoked turkey")
-leanPro = parser.ingredient("lean prosciutto")
-wgBread = parser.ingredient("Whole-grain bread")
-cbCereal = parser.ingredient("crushed bran cereal")
-gfSeeds = parser.ingredient("ground flax seeds")
-appSauce = parser.ingredient("Applesauce")
-cSpray = parser.ingredient("cooking spray")
-eWhite = parser.ingredient("egg white")
-wpFlour = parser.ingredient("whole-wheat pastry flour")
-elgBeef = parser.ingredient("Extra-lean ground beef")
-lgBeef = parser.ingredient("lean ground beef")
-gChicken = parser.ingredient("ground chicken breast")
-gTurkey = parser.ingredient("ground turkey breast")
-arugula = parser.ingredient("Arugula")
-chicory = parser.ingredient("chicory")
-cGreen = parser.ingredient("collard greens")
-kale = parser.ingredient("kale")
-spinach = parser.ingredient("spinach")
-watercress = parser.ingredient("watercress")
-rcMayon = parser.ingredient("Reduced-calorie mayonnaise")
-esMilk = parser.ingredient("Evaporated skim milk")
-rfMilk = parser.ingredient("Reduced fat milk")
-sMilk = parser.ingredient("skim milk")
-wPasta = parser.ingredient("whole-wheat pasta")
-bRice = parser.ingredient("Brown rice")
-wildRice = parser.ingredient("wild rice")
-ffSourCream = parser.ingredient("Fat free sour cream")
-lfSourCream = parser.ingredient("low-fat sour cream")
-lfpYogurt = parser.ingredient("low-fat plain yogurt")
-ffpYogurt = parser.ingredient("fat-free plain yogurt")
-gYogurt = parser.ingredient("greek yogurt")
-plYogurt = parser.ingredient("plain low-fat yogurt")
-stevia = parser.ingredient("stevia")
-cNibs = parser.ingredient("cacao nibs")
-cOil = parser.ingredient("coconut oil")
-ffcCheese = parser.ingredient("Fat free cream cheese")
-
-
+methodSubDict = {"boil":"bake","bake":"roast","fry":"bake","grill":"fry","steam":"pressure-cook","pan-fry":"boil","sear":"bake"}
 
 class transform(object):
     def __init__(self,recipe):
@@ -220,6 +132,72 @@ class transform(object):
     #             newingredientlist.append(ing)
     #
     #     self.newrecipe["ingredients"] = newingredientlist
+
+    
+
+
+    def updateMethodForDirection(self,directionlist,newMethod,oldMethod):
+        newDirectionList = []
+        for direction in directionlist:
+            newdirection = {}
+            newdirection["ingredients"] = direction["ingredients"]
+            newdirection["tools"] = direction["tools"]
+            newdirection["time"] = direction["time"]
+            newdirection["methods"] = []
+            newdirection["action"] = ""
+            met = direction["methods"]
+            action = direction["action"]
+
+            for method in met:
+                if method == oldMethod:
+                    newdirection["methods"].append(newMethod)
+                    continue
+                newdirection["methods"].append(method)
+
+            words = action.split()
+            newAction = ""
+            for w in words:
+                if WordNetLemmatizer().lemmatize(w,'v') == method:
+                    newAction = newAction + " " + newMethod
+                    continue
+                newAction = newAction + " " + w
+
+            newdirection["action"] = newAction
+
+            newDirectionList.append(newdirection)
+
+        return newDirectionList
+
+
+
+    def subMethods(self):
+        print (self.oldrecipe)
+        subDict = {"bake":"boil"}
+        self.newrecipe = self.oldrecipe
+        newPrimaryList = []
+        cnt = 0
+        for pcm in self.newrecipe["Methods"]["Primary cooking method"]:
+
+            if pcm in subDict:
+                newPrimaryList.append(subDict[pcm])
+                self.newrecipe["directions"] = self.updateMethodForDirection(self.newrecipe["directions"], subDict[pcm],pcm)
+            else:
+                newPrimaryList.append(pcm)
+
+
+
+        self.newrecipe["Methods"]["Primary cooking method"] = newPrimaryList
+
+        print (self.newrecipe)
+
+
+
+
+
+
+
+
+
 
 
 
