@@ -10,71 +10,11 @@ import string
 from nltk.stem.wordnet import WordNetLemmatizer
 from collections import OrderedDict
 
-class ingredient(object):
+def a():
+    a = 1+1
+    return a
 
-    def __init__(self,ingredientText):
-        self.stopwords = nltk.corpus.stopwords.words('english') + list(string.punctuation)
-        self.ing = OrderedDict()
-        self.ing["name"] = ""
-        self.ing["quantity"] = ""
-        self.ing["measurement"] = []
-        self.ing["descriptor"] = []
-        self.ing["preparation"] = []
-        self.ing["tag"] = None
-        
-
-        quantityText = re.search('(\d+([\s\.\/\d]+)?)+', ingredientText)
-        # print (quantityText)
-        quantity = None
-        if quantityText != None:
-            quantityTextList = quantityText.group(0).strip().split()
-            if quantityTextList != None or len(quantityTextList) != 0:
-                quantity = float(sum(Fraction(q) for q in quantityTextList))
-                ingredientText = ingredientText.replace(quantityText.group(0),'')    
-                
-
-        
-        self.ing["quantity"] = quantity
-        # print (newIngredient["quantity"])
-
-        # print (ingredientText)
-
-        tokens = nltk.tokenize.word_tokenize(ingredientText)
-        # print (tokens)
-        measurementList = []
-        descriptorList = []
-        preparationList = []
-
-        for token in tokens:
-            if token in keyWords.unitsList:
-                measurement = token
-                if measurement in keyWords.unitsAbbrToFull:
-                    measurement = keyWords[measurement]
-                self.ing["measurement"].append(measurement)
-                ingredientText = ingredientText.replace(token,'')
-
-            if token in keyWords.descriptorList:
-                self.ing["descriptor"].append(token)
-                ingredientText = ingredientText.replace(token,'')
-
-            if token in keyWords.preparationList:
-                self.ing["preparation"].append(token)
-                ingredientText = ingredientText.replace(token,'')
-
-        if len(self.ing["measurement"]) == 0:
-            self.ing["measurement"].append("unit")
-
-
-        tokens = nltk.tokenize.word_tokenize(ingredientText)
-        totensList = []
-        for token in tokens:
-            if token in self.stopwords:
-                continue
-            totensList.append(token)
-        self.ing["name"] = (" ").join(totensList)
-       
-
-class parser(object):
+class parse(object):
 
     def __init__(self,url,spicesDictPath,proteinDictPath,carbohydratesDictPath,fatsDictPath,resPath="output.json"):
         self.res = {}
@@ -307,24 +247,63 @@ class parser(object):
         print (self.methods)
 
 
-                    
-        
-        
+class ingredient(object):
+    def __init__(self, ingredientText):
+        self.stopwords = nltk.corpus.stopwords.words('english') + list(string.punctuation)
+        self.ing = OrderedDict()
+        self.ing["name"] = ""
+        self.ing["quantity"] = ""
+        self.ing["measurement"] = []
+        self.ing["descriptor"] = []
+        self.ing["preparation"] = []
+        self.ing["tag"] = None
 
-    
+        quantityText = re.search('(\d+([\s\.\/\d]+)?)+', ingredientText)
+        # print (quantityText)
+        quantity = None
+        if quantityText != None:
+            quantityTextList = quantityText.group(0).strip().split()
+            if quantityTextList != None or len(quantityTextList) != 0:
+                quantity = float(sum(Fraction(q) for q in quantityTextList))
+                ingredientText = ingredientText.replace(quantityText.group(0), '')
 
-                
+        self.ing["quantity"] = quantity
+        # print (newIngredient["quantity"])
 
+        # print (ingredientText)
 
-                    
+        tokens = nltk.tokenize.word_tokenize(ingredientText)
+        # print (tokens)
+        measurementList = []
+        descriptorList = []
+        preparationList = []
 
+        for token in tokens:
+            if token in keyWords.unitsList:
+                measurement = token
+                if measurement in keyWords.unitsAbbrToFull:
+                    measurement = keyWords[measurement]
+                self.ing["measurement"].append(measurement)
+                ingredientText = ingredientText.replace(token, '')
 
+            if token in keyWords.descriptorList:
+                self.ing["descriptor"].append(token)
+                ingredientText = ingredientText.replace(token, '')
 
-                
+            if token in keyWords.preparationList:
+                self.ing["preparation"].append(token)
+                ingredientText = ingredientText.replace(token, '')
 
+        if len(self.ing["measurement"]) == 0:
+            self.ing["measurement"].append("unit")
 
-
-
+        tokens = nltk.tokenize.word_tokenize(ingredientText)
+        totensList = []
+        for token in tokens:
+            if token in self.stopwords:
+                continue
+            totensList.append(token)
+        self.ing["name"] = (" ").join(totensList)
             
 
 

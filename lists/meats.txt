@@ -33,7 +33,6 @@ Caribou
 carp
 catfish
 Chicken
-Chicken 
 chicken breast
 chicken broth
 Chicken Liver
