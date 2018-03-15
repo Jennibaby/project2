@@ -169,7 +169,6 @@ descriptorList = [
 "leaves",
 "button",
 "chunks",
-"powder",
 "yellow",
 "silken",
 "kosher",
@@ -264,6 +263,7 @@ descriptorList = [
 ]
 		
 preparationList = [
+"salted"
 "chopped",
 "diced",
 "sliced",
@@ -594,7 +594,7 @@ methodList = ["chop",
 "roll out",
 "roll up",
 "rub",
-"salt",
+"salt"
 "saute",
 "scald",
 "scallop",

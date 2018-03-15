@@ -12,16 +12,14 @@
             ]
         },
         "2":{
-            "name":"thick-cut pork chops",
+            "name":"tofu",
             "quantity":6.0,
             "measurement":[
                 "unit"
             ],
-            "descriptor":[
-                "boneless"
-            ],
+            "descriptor":[],
             "preparation":[
-                "boneless"
+                "sliced"
             ]
         },
         "3":{
@@ -74,13 +72,15 @@
             "preparation":[]
         },
         "7":{
-            "name":"chicken broth",
+            "name":"seitan",
             "quantity":2.0,
             "measurement":[
                 "cups"
             ],
             "descriptor":[],
-            "preparation":[]
+            "preparation":[
+                "sliced"
+            ]
         },
         "8":{
             "name":"half-and-half",
@@ -130,158 +130,39 @@
                 "shredded",
                 "divided"
             ]
-        },
-        "12":{
-            "name":"poblano pepper",
-            "quantity":5.0,
-            "measurement":[
-                "tablespoons"
-            ],
-            "descriptor":[],
-            "preparation":[]
-        },
-        "13":{
-            "name":"thick-cut pork chops",
-            "quantity":6.0,
-            "measurement":[
-                "unit"
-            ],
-            "descriptor":[
-                "boneless"
-            ],
-            "preparation":[
-                "boneless"
-            ]
-        },
-        "14":{
-            "name":"serano pepper",
-            "quantity":1,
-            "measurement":[
-                "taste"
-            ],
-            "descriptor":[],
-            "preparation":[]
-        },
-        "15":{
-            "name":"habanero pepper",
-            "quantity":2.0,
-            "measurement":[
-                "teaspoons"
-            ],
-            "descriptor":[],
-            "preparation":[]
-        },
-        "16":{
-            "name":"chile-powder",
-            "quantity":2.0,
-            "measurement":[
-                "teaspoons"
-            ],
-            "descriptor":[],
-            "preparation":[]
-        },
-        "17":{
-            "name":"chile-powder",
-            "quantity":3.0,
-            "measurement":[
-                "tablespoons"
-            ],
-            "descriptor":[
-                "ancho"
-            ],
-            "preparation":[]
-        },
-        "18":{
-            "name":"chicken broth",
-            "quantity":2.0,
-            "measurement":[
-                "cups"
-            ],
-            "descriptor":[],
-            "preparation":[]
-        },
-        "19":{
-            "name":"half-and-half",
-            "quantity":0.5,
-            "measurement":[
-                "cup"
-            ],
-            "descriptor":[],
-            "preparation":[]
-        },
-        "20":{
-            "name":"potatoes",
-            "quantity":6.0,
-            "measurement":[
-                "unit"
-            ],
-            "descriptor":[],
-            "preparation":[
-                "peeled",
-                "thinly",
-                "sliced",
-                "divided"
-            ]
-        },
-        "21":{
-            "name":"onion",
-            "quantity":0.5,
-            "measurement":[
-                "cup"
-            ],
-            "descriptor":[],
-            "preparation":[
-                "diced",
-                "divided"
-            ]
-        },
-        "22":{
-            "name":"cheese",
-            "quantity":1.0,
-            "measurement":[
-                "cup"
-            ],
-            "descriptor":[
-                "cheddar"
-            ],
-            "preparation":[
-                "shredded",
-                "divided"
-            ]
         }
     },
     "Tools":[
-        "dish",
-        "tablespoon",
-        "skillet",
         "saucepan",
-        "wooden spoon",
-        "baking dish",
         "whisk",
-        "oven"
+        "baking dish",
+        "oven",
+        "tablespoon",
+        "dish",
+        "skillet",
+        "wooden spoon"
     ],
     "Methods":{
         "Primary cooking method":[
-            "bake",
-            "broil"
+            "broil",
+            "bake"
         ],
         "other method":[
-            "preheat",
-            "layer",
-            "melt",
             "stir",
-            "salt",
+            "grease",
+            "whisk",
+            "preheat",
+            "pour",
+            "thicken",
+            "arrange",
+            "cover",
+            "remove",
+            "flour",
+            "sprinkle",
             "season",
             "heat",
-            "sprinkle",
-            "cover",
-            "whisk",
-            "remove",
-            "grease",
-            "flour",
-            "pour",
-            "arrange",
-            "thicken"
+            "melt",
+            "layer"
         ]
     },
     "steps":{
@@ -293,12 +174,12 @@
             "tools":[
                 "baking dish",
                 "dish",
-                "tablespoon",
-                "oven"
+                "oven",
+                "tablespoon"
             ],
             "time":[],
             "ingredients":[
-                "serano pepper"
+                "butter"
             ],
             "action":" preheat oven to 350 degrees f (175 degrees c). grease a 9x13-inch baking dish with 1 tablespoon butter."
         },
@@ -306,60 +187,58 @@
             "methods":[
                 "heat",
                 "season",
-                "melt",
-                "salt"
+                "melt"
             ],
             "tools":[
-                "tablespoon",
-                "skillet"
+                "skillet",
+                "tablespoon"
             ],
             "time":[
                 "3 to 5 minutes per side"
             ],
             "ingredients":[
-                "serano pepper",
-                "serano pepper"
+                "butter",
+                "salt pepper"
             ],
-            "action":" melt 1 tablespoon poblano serano pepper in a skillet over medium heat. season pork chops with serano pepper and pepper; cook in skillet until browned, 3 to 5 minutes per side."
+            "action":" melt 1 tablespoon butter in a skillet over medium heat. season tofu with salt and pepper; cook in skillet until browned, 3 to 5 minutes per side."
         },
         "3":{
             "methods":[
-                "melt",
-                "stir",
-                "salt",
-                "heat",
-                "season",
                 "whisk",
+                "thicken",
                 "remove",
                 "flour",
-                "thicken"
+                "season",
+                "melt",
+                "heat",
+                "stir"
             ],
             "tools":[
                 "saucepan",
-                "whisk",
-                "wooden spoon"
+                "wooden spoon",
+                "whisk"
             ],
             "time":[
                 "5 minutes"
             ],
             "ingredients":[
-                "serano pepper",
-                "chicken broth",
-                "serano pepper",
-                "chile-powder",
-                "chile-powder",
-                "habanero pepper",
-                "half-and-half"
+                "half-and-half",
+                "salt pepper",
+                "mustard",
+                "flour",
+                "butter",
+                "thyme",
+                "seitan"
             ],
-            "action":" melt remaining 3 tablespoons poblano serano pepper in a small saucepan over medium-high heat. stir habanero pepper and chile-powder into the butter; season with serano pepper and pepper. whisk chile-powder into the poblano serano pepper mixture to make a thick paste. slowly whisk chicken broth and half-and-half into the paste mixture until smooth. continue to cook, stirring occasionally, until it begins to thicken into a sauce, about 5 minutes; remove from heat."
+            "action":" melt remaining 3 tablespoons butter in a small saucepan over medium-high heat. stir mustard and thyme into the butter; season with salt and pepper. whisk flour into the butter mixture to make a thick paste. slowly whisk seitan and half-and-half into the paste mixture until smooth. continue to cook, stirring occasionally, until it begins to thicken into a sauce, about 5 minutes; remove from heat."
         },
         "4":{
             "methods":[
-                "layer",
-                "sprinkle",
-                "cover",
                 "pour",
-                "arrange"
+                "arrange",
+                "cover",
+                "sprinkle",
+                "layer"
             ],
             "tools":[
                 "dish",
@@ -368,10 +247,10 @@
             "time":[],
             "ingredients":[
                 "cheese",
-                "onion",
-                "potatoes"
+                "potatoes",
+                "onion"
             ],
-            "action":" cover the bottom of the prepared baking dish with about half the potato slices and diced onion. sprinkle about half the cheddar cheese over the potato mixture. arrange the pork chops over cheese layer. layer remaining potatoes and onion atop the pork chops. pour the sauce evenly over the potato mixture."
+            "action":" cover the bottom of the prepared baking dish with about half the potato slices and diced onion. sprinkle about half the cheddar cheese over the potato mixture. arrange the tofu over cheese layer. layer remaining potatoes and onion atop the tofu chops. pour the sauce evenly over the potato mixture."
         },
         "5":{
             "methods":[],

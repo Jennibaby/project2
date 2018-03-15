@@ -133,37 +133,36 @@
         }
     },
     "Tools":[
-        "dish",
-        "tablespoon",
-        "skillet",
         "saucepan",
-        "wooden spoon",
-        "baking dish",
         "whisk",
-        "oven"
+        "baking dish",
+        "oven",
+        "tablespoon",
+        "dish",
+        "skillet",
+        "wooden spoon"
     ],
     "Methods":{
         "Primary cooking method":[
-            "bake",
-            "broil"
+            "broil",
+            "bake"
         ],
         "other method":[
-            "preheat",
-            "layer",
-            "melt",
             "stir",
-            "salt",
+            "grease",
+            "whisk",
+            "preheat",
+            "pour",
+            "thicken",
+            "arrange",
+            "cover",
+            "remove",
+            "flour",
+            "sprinkle",
             "season",
             "heat",
-            "sprinkle",
-            "cover",
-            "whisk",
-            "remove",
-            "grease",
-            "flour",
-            "pour",
-            "arrange",
-            "thicken"
+            "melt",
+            "layer"
         ]
     },
     "steps":{
@@ -178,8 +177,8 @@
             "tools":[
                 "baking dish",
                 "dish",
-                "tablespoon",
-                "oven"
+                "oven",
+                "tablespoon"
             ],
             "time":[],
             "action":"preheat oven to 350 degrees f (175 degrees c). grease a 9x13-inch baking dish with 1 tablespoon butter."
@@ -192,12 +191,11 @@
             "methods":[
                 "heat",
                 "season",
-                "melt",
-                "salt"
+                "melt"
             ],
             "tools":[
-                "tablespoon",
-                "skillet"
+                "skillet",
+                "tablespoon"
             ],
             "time":[
                 "3 to 5 minutes per side"
@@ -206,29 +204,28 @@
         },
         "3":{
             "ingredients":[
-                "butter",
-                "chicken broth",
+                "half-and-half",
                 "salt pepper",
-                "thyme",
-                "flour",
                 "mustard",
-                "half-and-half"
+                "flour",
+                "butter",
+                "thyme",
+                "chicken broth"
             ],
             "methods":[
-                "melt",
-                "stir",
-                "salt",
-                "heat",
-                "season",
                 "whisk",
+                "thicken",
                 "remove",
                 "flour",
-                "thicken"
+                "season",
+                "melt",
+                "heat",
+                "stir"
             ],
             "tools":[
                 "saucepan",
-                "whisk",
-                "wooden spoon"
+                "wooden spoon",
+                "whisk"
             ],
             "time":[
                 "5 minutes"
@@ -238,15 +235,15 @@
         "4":{
             "ingredients":[
                 "cheese",
-                "onion",
-                "potatoes"
+                "potatoes",
+                "onion"
             ],
             "methods":[
-                "layer",
-                "sprinkle",
-                "cover",
                 "pour",
-                "arrange"
+                "arrange",
+                "cover",
+                "sprinkle",
+                "layer"
             ],
             "tools":[
                 "dish",

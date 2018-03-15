@@ -1,7 +1,8 @@
 import parser
-from lists.meatlist import meatlist
-from lists.nonMeatList import nonMeatList
-from subList import meatsubList, nonMeatSubList, nonHealthyDict, healtyDict, mexicanSubDict, non_mexican,nonMexicanSpicyList,nonMexicanSpicySubDict,mexicanSpicyList
+from meatlist import meatlist
+from nonMeatList import nonMeatList
+from subList import meatsubList, nonMeatSubList, nonHealthyDict, healtyDict, mexicanSubDict, non_mexican,\
+nonMexicanSpicyList,nonMexicanSpicySubDict,commonSpicesList,mexicanSpicyList,nonIndianDict,indianSpciyList
 from nltk.stem.wordnet import WordNetLemmatizer
 import json
 import utils
@@ -61,6 +62,34 @@ class transform(object):
 
 
 
+    def removeingredForDirection(self,directionlist,oldName):
+
+
+        newDirectionList = []
+        for direction in directionlist:
+            newdirection = {}
+            newdirection["methods"] = direction["methods"]
+            newdirection["tools"] = direction["tools"]
+            newdirection["time"] = direction["time"]
+            newdirection["ingredients"] = []
+            newdirection["action"] = direction["action"]
+            ing = direction["ingredients"]
+
+            for ingred in ing:
+                words = ingred.split()
+                flag = True
+                for w in words:
+                    if w in oldName.split():
+                        flag = False
+                        break
+                if flag:
+                    newdirection["ingredients"].append(ingred)
+
+            newDirectionList.append(newdirection)
+
+        return newDirectionList
+
+
     def updateingredForIngredient(self,newIng,oldIng,quantityHalf):
         if quantityHalf != None:
             newIng["quantity"] = oldIng["quantity"]*quantityHalf
@@ -95,6 +124,7 @@ class transform(object):
                     utils.printDict(ing)
                     print ("new ingredient:")
                     utils.printDict(newTemp)
+                    print ("\n")
 
                     cnt = cnt + 1
                     flag = False
@@ -130,6 +160,7 @@ class transform(object):
                     utils.printDict(ing)
                     print ("new ingredient:")
                     utils.printDict(newTemp)
+                    print ("\n")
 
                     cnt = cnt + 1
                     flag = False
@@ -167,6 +198,7 @@ class transform(object):
                 utils.printDict(ing)
                 print ("new ingredient:")
                 utils.printDict(newTemp)
+                print ("\n")
                 flag = False
 
             if flag:
@@ -210,6 +242,7 @@ class transform(object):
                     utils.printDict(ing)
                     print ("new ingredient:")
                     utils.printDict(newTemp)
+                    print ("\n")
                     flag = False
 
             if flag and (ing["name"] == "butter" or ing["name"] == "sugar"):
@@ -222,6 +255,7 @@ class transform(object):
                 utils.printDict(ing)
                 print ("new ingredient:")
                 utils.printDict(newTemp)
+                print ("\n")
                 flag = False
 
             if flag:
@@ -229,7 +263,6 @@ class transform(object):
         if i == 1:
             print ("can not find anything healthy that can change to something non-healthy")
         self.newrecipe["ingredients"] = newingredientlist
-
 
     def toMexican(self):
         print ("transfomation to make recipe more mexican")
@@ -243,9 +276,10 @@ class transform(object):
             flag = True
             if ing["name"] in non_mexican:
                 self.newrecipe["directions"] = self.updateingredForDirection(self.newrecipe["directions"],
-                                                                             mexicanSubDict[ing["name"]]["name"], ing["name"])
+                                                                             mexicanSubDict[ing["name"]]["name"],
+                                                                             ing["name"])
 
-                newTemp = self.updateingredForIngredient(mexicanSubDict[ing["name"]], ing,None)
+                newTemp = self.updateingredForIngredient(mexicanSubDict[ing["name"]], ing, None)
                 newingredientlist.append(newTemp)
                 print ("sub" + str(i))
                 i += 1
@@ -253,11 +287,13 @@ class transform(object):
                 utils.printDict(ing)
                 print ("new ingredient:")
                 utils.printDict(newTemp)
+                print ("\n")
                 flag = False
 
             elif ing["name"] in nonMexicanSpicyList:
                 self.newrecipe["directions"] = self.updateingredForDirection(self.newrecipe["directions"],
-                                                                             nonMexicanSpicySubDict[ing["name"]]["name"],
+                                                                             nonMexicanSpicySubDict[ing["name"]][
+                                                                                 "name"],
                                                                              ing["name"])
 
                 newTemp = self.updateingredForIngredient(nonMexicanSpicySubDict[ing["name"]], ing, None)
@@ -268,8 +304,8 @@ class transform(object):
                 utils.printDict(ing)
                 print ("new ingredient:")
                 utils.printDict(newTemp)
+                print ("\n")
                 flag = False
-
 
             if flag:
                 newingredientlist.append(ing)
@@ -278,9 +314,11 @@ class transform(object):
             cnt = 0
             for ing in self.newrecipe["ingredients"]:
                 flag = True
-                if ing["measurement"][0] in ["teaspoon", "teaspoons", "taste", "pinch","dash"] and cnt < len(mexicanSpicyList):
+                if ing["measurement"][0] in ["teaspoon", "teaspoons", "taste", "pinch", "dash"] and cnt < len(
+                        mexicanSpicyList):
                     self.newrecipe["directions"] = self.updateingredForDirection(self.newrecipe["directions"],
-                                                                                 copy.deepcopy(mexicanSpicyList[cnt]["name"]),
+                                                                                 copy.deepcopy(
+                                                                                     mexicanSpicyList[cnt]["name"]),
                                                                                  ing["name"])
                     newTemp = self.updateingredForIngredient(mexicanSpicyList[cnt], ing, None)
                     newingredientlist.append(newTemp)
@@ -290,6 +328,7 @@ class transform(object):
                     utils.printDict(ing)
                     print ("new ingredient:")
                     utils.printDict(newTemp)
+                    print ("\n")
                     flag = False
                     cnt = cnt + 1
 
@@ -298,6 +337,90 @@ class transform(object):
         if i == 1:
             print ("can not find anything that can make recipe more mexican")
 
+        self.newrecipe["ingredients"] = newingredientlist
+
+
+    def toIndian(self):
+        print ("transfomation to make recipe more indian")
+        self.newrecipe = copy.deepcopy(self.oldrecipe)
+        newingredientlist = []
+        i = 1
+        cnt = 0
+        for ing in self.newrecipe["ingredients"]:
+            # print (ing)
+
+            flag = True
+            if ing["name"] in nonIndianDict:
+                self.newrecipe["directions"] = self.updateingredForDirection(self.newrecipe["directions"],
+                                                                             nonIndianDict[ing["name"]]["name"],
+                                                                             ing["name"])
+
+                newTemp = self.updateingredForIngredient(nonIndianDict[ing["name"]], ing, None)
+                newingredientlist.append(newTemp)
+                print ("sub" + str(i))
+                i += 1
+                print ("original ingredient:")
+                utils.printDict(ing)
+                print ("new ingredient:")
+                utils.printDict(newTemp)
+                print ("\n")
+                flag = False
+            elif ing["measurement"][0] in ["teaspoon", "teaspoons", "taste", "pinch", "dash"] and cnt < len(
+                        mexicanSpicyList):
+                self.newrecipe["directions"] = self.updateingredForDirection(self.newrecipe["directions"],
+                                                                             copy.deepcopy(
+                                                                                 indianSpciyList[cnt]["name"]),
+                                                                             ing["name"])
+                newTemp = self.updateingredForIngredient(indianSpciyList[cnt], ing, None)
+                newingredientlist.append(newTemp)
+                print ("sub" + str(i))
+                i += 1
+                print ("original ingredient:")
+                utils.printDict(ing)
+                print ("new ingredient:")
+                utils.printDict(newTemp)
+                print ("\n")
+                flag = False
+                cnt = cnt + 1
+
+            if flag:
+                newingredientlist.append(ing)
+
+        if i == 1:
+            print ("can not find anything that can make recipe more indian")
+
+        self.newrecipe["ingredients"] = newingredientlist
+
+
+    def DIY(self):
+        print ("transfomation to make recipe easier")
+        self.newrecipe = copy.deepcopy(self.oldrecipe)
+        newingredientlist = []
+        i = 1
+        cnt = 0
+        for ing in self.newrecipe["ingredients"]:
+            flag = True
+            if ing["measurement"][0] in ["teaspoon", "teaspoons", "taste", "pinch", "dash"]:
+                need = True
+                for cp in commonSpicesList:
+                    if cp in ing["name"]:
+                        need = False
+                        break
+                if need:
+                    self.newrecipe["directions"] = self.removeingredForDirection(self.newrecipe["directions"],ing["name"])
+                    print ("remove" + str(i))
+                    i += 1
+                    print ("remove ingredient:")
+                    utils.printDict(ing)
+                    print ("\n")
+                    flag = False
+                    cnt = cnt + 1
+
+            if flag:
+                newingredientlist.append(ing)
+
+        if i == 1:
+            print ("can not find anything that can make recipe easier")
 
         self.newrecipe["ingredients"] = newingredientlist
 
@@ -335,6 +458,8 @@ class transform(object):
         return newDirectionList
 
 
+
+
     def subMethods(self,subDict):
         self.newrecipe = copy.deepcopy(self.oldrecipe)
         newPrimaryList = []
@@ -349,6 +474,7 @@ class transform(object):
                 utils.printDict(pcm)
                 print ("new method:")
                 utils.printDict(subDict[pcm])
+                print ("\n")
 
                 i += 1
 

@@ -222,3 +222,71 @@ nonMexicanSpicySubDict = {
 	"chopped onion":chipSalsa.ing
 }
 
+
+# non_indian = [
+#     "dried thyme", "mild oregano","lime juice", "lime powder","garlic powder","sesame seeds","wasabi", "horseradish","cinnamon", "nutmeg", "ginger", "ground cloves","celery seeds", "oregano","poppy seeds","ham","pork chop", "pork loin","bacon","pork sausage","pork","beef","ground beef","beef ribs","beef shank","beef shoulder", "beef chuck","beef sirloin","bread"
+# ]
+
+ajwain = parser.ingredient("ajwain")
+amchoor = parser.ingredient("amchoor")
+asafoetida = parser.ingredient("asafoetida")
+blackCumin = parser.ingredient("black cumin seeds")
+blackMustard = parser.ingredient("black mustard seeds")
+brownMustard = parser.ingredient("brown mustard seeds")
+cardamom = parser.ingredient("cardamom")
+nigella = parser.ingredient("nigella")
+whitePoppy = parser.ingredient("white poppy seeds")
+sTurkey = parser.ingredient("smoked turkey")
+tBreast = parser.ingredient("turkey breast")
+tBacon = parser.ingredient("turkey bacon")
+tSausage = parser.ingredient("turkey sausage")
+turkey = parser.ingredient("turkey")
+lamb = parser.ingredient("lamb")
+gLamb = parser.ingredient("ground lamb")
+lambRibs = parser.ingredient("lamb ribs")
+lambShank = parser.ingredient("lamb shank")
+lambShoulder = parser.ingredient("lamb shoulder")
+scLamb = parser.ingredient("sirloin chop lamb")
+naan = parser.ingredient("Naan")
+
+
+nonIndianDict = {
+	"thyme":ajwain.ing,
+	"oregano":ajwain.ing,
+	"lime juice":amchoor.ing,
+	"lime powder":amchoor.ing,
+	"garlic powder":asafoetida.ing,
+	"sesame seeds":blackCumin.ing,
+	"wasabi":blackMustard.ing,
+	"horseradish":brownMustard.ing,
+	"cinnamon":cardamom.ing,
+	"nutmeg":cardamom.ing,
+	"ginger":cardamom.ing,
+	"cloves":cardamom.ing,
+	"celery seeds":nigella.ing,
+	"oregano":nigella.ing,
+	"poppy seeds":whitePoppy.ing,
+	"ham":sTurkey.ing,
+	"pork chop":tBreast.ing,
+	"pork loin":tBreast.ing,
+	"bacon":tBacon.ing,
+	"pork sausage":tSausage.ing,
+	"pork":turkey.ing,
+	"beef":gLamb.ing,
+	"beef ribs":lambRibs.ing,
+	"beef shank":lambShank.ing,
+	"beef shoulder":lambShoulder.ing,
+	"beef chuck":lambShoulder.ing,
+	"beef sirloin":scLamb.ing,
+	"bread":naan.ing
+}
+
+raita = parser.ingredient("raita")
+gChutney = parser.ingredient("Garlic chutney")
+mAchaar = parser.ingredient("Mango Achaar")
+
+indianSpciyList = [
+	raita.ing, gChutney.ing, mAchaar.ing
+]
+
+commonSpicesList = ["salt", "pepper", "garlic", "onion", "butter", "oil", "water"]
