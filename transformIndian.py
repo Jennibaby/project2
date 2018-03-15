@@ -90,20 +90,6 @@ test_recipe_Ingredients = [
     "pork sausage"
 ]
 
-# for n in non_indian:
-#     print(n)
-#     for x in n:
-#         print(x)
-
-
-# def to_indian(recipe):
-#     for recipe in test_recipe_Ingredients:
-#         # for n in non_indian:
-#         #     for x in non_indian:
-#         #         if i.contains(x):
-#         #             print(i)
-#         print(i)
-
 
 # To Indian
 contains_non_indian = []
@@ -174,11 +160,7 @@ def fromIndian(ingredients, steps):
         for n in contains_indian:
             index = index + 1
             s = step.get('action')
-                if n in s:
-                    s = s.replace(n, non_indian_replacement[index][0])
-                    step['action'] = s
+            if n in s:
+                s = s.replace(n, non_indian_replacement[index][0])
+                step['action'] = s
 
-# for x in indian:
-#     for ingredient in x:
-#         print(ingredient)
-#     #print()
