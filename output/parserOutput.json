@@ -133,14 +133,14 @@
         }
     },
     "Tools":[
-        "saucepan",
-        "whisk",
-        "baking dish",
         "oven",
-        "tablespoon",
-        "dish",
+        "baking dish",
+        "saucepan",
         "skillet",
-        "wooden spoon"
+        "wooden spoon",
+        "tablespoon",
+        "whisk",
+        "dish"
     ],
     "Methods":{
         "Primary cooking method":[
@@ -148,21 +148,21 @@
             "bake"
         ],
         "other method":[
-            "stir",
-            "grease",
-            "whisk",
-            "preheat",
-            "pour",
-            "thicken",
-            "arrange",
-            "cover",
-            "remove",
-            "flour",
-            "sprinkle",
-            "season",
-            "heat",
             "melt",
-            "layer"
+            "thicken",
+            "layer",
+            "preheat",
+            "remove",
+            "sprinkle",
+            "grease",
+            "stir",
+            "cover",
+            "pour",
+            "heat",
+            "flour",
+            "season",
+            "whisk",
+            "arrange"
         ]
     },
     "steps":{
@@ -171,14 +171,14 @@
                 "butter"
             ],
             "methods":[
-                "preheat",
-                "grease"
+                "grease",
+                "preheat"
             ],
             "tools":[
-                "baking dish",
-                "dish",
                 "oven",
-                "tablespoon"
+                "tablespoon",
+                "dish",
+                "baking dish"
             ],
             "time":[],
             "action":"preheat oven to 350 degrees f (175 degrees c). grease a 9x13-inch baking dish with 1 tablespoon butter."
@@ -189,13 +189,13 @@
                 "salt pepper"
             ],
             "methods":[
-                "heat",
                 "season",
-                "melt"
+                "melt",
+                "heat"
             ],
             "tools":[
-                "skillet",
-                "tablespoon"
+                "tablespoon",
+                "skillet"
             ],
             "time":[
                 "3 to 5 minutes per side"
@@ -204,28 +204,28 @@
         },
         "3":{
             "ingredients":[
+                "thyme",
+                "butter",
                 "half-and-half",
-                "salt pepper",
                 "mustard",
                 "flour",
-                "butter",
-                "thyme",
-                "chicken broth"
+                "chicken broth",
+                "salt pepper"
             ],
             "methods":[
-                "whisk",
+                "melt",
                 "thicken",
                 "remove",
+                "stir",
+                "heat",
                 "flour",
                 "season",
-                "melt",
-                "heat",
-                "stir"
+                "whisk"
             ],
             "tools":[
                 "saucepan",
-                "wooden spoon",
-                "whisk"
+                "whisk",
+                "wooden spoon"
             ],
             "time":[
                 "5 minutes"
@@ -234,20 +234,20 @@
         },
         "4":{
             "ingredients":[
-                "cheese",
                 "potatoes",
+                "cheese",
                 "onion"
             ],
             "methods":[
-                "pour",
-                "arrange",
-                "cover",
+                "layer",
                 "sprinkle",
-                "layer"
+                "cover",
+                "pour",
+                "arrange"
             ],
             "tools":[
-                "dish",
-                "baking dish"
+                "baking dish",
+                "dish"
             ],
             "time":[],
             "action":"cover the bottom of the prepared baking dish with about half the potato slices and diced onion. sprinkle about half the cheddar cheese over the potato mixture. arrange the pork chops over cheese layer. layer remaining potatoes and onion atop the pork chops. pour the sauce evenly over the potato mixture."
@@ -258,12 +258,12 @@
             ],
             "methods":[],
             "tools":[
-                "dish",
-                "oven"
+                "oven",
+                "dish"
             ],
             "time":[
-                "5 minutes",
-                "1 hour"
+                "1 hour",
+                "5 minutes"
             ],
             "action":"bake in preheated oven for 1 hour. top dish with remaining cheddar cheese, switch oven to broil, and continue baking until the top is browned and bubbly, about 5 minutes."
         }

@@ -1,25 +1,25 @@
 {
     "ingredients":{
         "1":{
-            "name":"butter",
-            "quantity":5.0,
+            "name":"applesauce",
+            "quantity":2.5,
             "measurement":[
                 "tablespoons"
             ],
             "descriptor":[],
-            "preparation":[
-                "divided"
-            ]
+            "preparation":[]
         },
         "2":{
-            "name":"tofu",
+            "name":"thick-cut pork chops",
             "quantity":6.0,
             "measurement":[
                 "unit"
             ],
-            "descriptor":[],
+            "descriptor":[
+                "boneless"
+            ],
             "preparation":[
-                "sliced"
+                "boneless"
             ]
         },
         "3":{
@@ -61,26 +61,24 @@
             ]
         },
         "6":{
-            "name":"flour",
+            "name":"pastry flour",
             "quantity":3.0,
             "measurement":[
                 "tablespoons"
             ],
             "descriptor":[
-                "all-purpose"
+                "whole-wheat"
             ],
             "preparation":[]
         },
         "7":{
-            "name":"seitan",
+            "name":"chicken broth",
             "quantity":2.0,
             "measurement":[
                 "cups"
             ],
             "descriptor":[],
-            "preparation":[
-                "sliced"
-            ]
+            "preparation":[]
         },
         "8":{
             "name":"half-and-half",
@@ -124,23 +122,20 @@
                 "cup"
             ],
             "descriptor":[
-                "cheddar"
+                "fat free"
             ],
-            "preparation":[
-                "shredded",
-                "divided"
-            ]
+            "preparation":[]
         }
     },
     "Tools":[
-        "saucepan",
-        "whisk",
-        "baking dish",
         "oven",
-        "tablespoon",
-        "dish",
+        "baking dish",
+        "saucepan",
         "skillet",
-        "wooden spoon"
+        "wooden spoon",
+        "tablespoon",
+        "whisk",
+        "dish"
     ],
     "Methods":{
         "Primary cooking method":[
@@ -148,119 +143,119 @@
             "bake"
         ],
         "other method":[
-            "stir",
-            "grease",
-            "whisk",
-            "preheat",
-            "pour",
-            "thicken",
-            "arrange",
-            "cover",
-            "remove",
-            "flour",
-            "sprinkle",
-            "season",
-            "heat",
             "melt",
-            "layer"
+            "thicken",
+            "layer",
+            "preheat",
+            "remove",
+            "sprinkle",
+            "grease",
+            "stir",
+            "cover",
+            "pour",
+            "heat",
+            "flour",
+            "season",
+            "whisk",
+            "arrange"
         ]
     },
     "steps":{
         "1":{
             "methods":[
-                "preheat",
-                "grease"
+                "grease",
+                "preheat"
             ],
             "tools":[
-                "baking dish",
-                "dish",
                 "oven",
-                "tablespoon"
-            ],
-            "time":[],
-            "ingredients":[
-                "butter"
-            ],
-            "action":" preheat oven to 350 degrees f (175 degrees c). grease a 9x13-inch baking dish with 1 tablespoon butter."
-        },
-        "2":{
-            "methods":[
-                "heat",
-                "season",
-                "melt"
-            ],
-            "tools":[
-                "skillet",
-                "tablespoon"
-            ],
-            "time":[
-                "3 to 5 minutes per side"
-            ],
-            "ingredients":[
-                "butter",
-                "salt pepper"
-            ],
-            "action":" melt 1 tablespoon butter in a skillet over medium heat. season tofu with salt and pepper; cook in skillet until browned, 3 to 5 minutes per side."
-        },
-        "3":{
-            "methods":[
-                "whisk",
-                "thicken",
-                "remove",
-                "flour",
-                "season",
-                "melt",
-                "heat",
-                "stir"
-            ],
-            "tools":[
-                "saucepan",
-                "wooden spoon",
-                "whisk"
-            ],
-            "time":[
-                "5 minutes"
-            ],
-            "ingredients":[
-                "half-and-half",
-                "salt pepper",
-                "mustard",
-                "flour",
-                "butter",
-                "thyme",
-                "seitan"
-            ],
-            "action":" melt remaining 3 tablespoons butter in a small saucepan over medium-high heat. stir mustard and thyme into the butter; season with salt and pepper. whisk flour into the butter mixture to make a thick paste. slowly whisk seitan and half-and-half into the paste mixture until smooth. continue to cook, stirring occasionally, until it begins to thicken into a sauce, about 5 minutes; remove from heat."
-        },
-        "4":{
-            "methods":[
-                "pour",
-                "arrange",
-                "cover",
-                "sprinkle",
-                "layer"
-            ],
-            "tools":[
+                "tablespoon",
                 "dish",
                 "baking dish"
             ],
             "time":[],
             "ingredients":[
-                "cheese",
+                "applesauce"
+            ],
+            "action":" preheat oven to 350 degrees f (175 degrees c). grease a 9x13-inch baking dish with 1 tablespoon butter."
+        },
+        "2":{
+            "methods":[
+                "season",
+                "melt",
+                "heat"
+            ],
+            "tools":[
+                "tablespoon",
+                "skillet"
+            ],
+            "time":[
+                "3 to 5 minutes per side"
+            ],
+            "ingredients":[
+                "applesauce",
+                "salt pepper"
+            ],
+            "action":" melt 1 tablespoon applesauce in a skillet over medium heat. season pork chops with salt and pepper; cook in skillet until browned, 3 to 5 minutes per side."
+        },
+        "3":{
+            "methods":[
+                "melt",
+                "thicken",
+                "remove",
+                "stir",
+                "heat",
+                "flour",
+                "season",
+                "whisk"
+            ],
+            "tools":[
+                "saucepan",
+                "whisk",
+                "wooden spoon"
+            ],
+            "time":[
+                "5 minutes"
+            ],
+            "ingredients":[
+                "thyme",
+                "applesauce",
+                "half-and-half",
+                "mustard",
+                "pastry flour",
+                "chicken broth",
+                "salt pepper"
+            ],
+            "action":" melt remaining 3 tablespoons applesauce in a small saucepan over medium-high heat. stir mustard and thyme into the butter; season with salt and pepper. whisk pastry flour into the applesauce mixture to make a thick paste. slowly whisk chicken broth and half-and-half into the paste mixture until smooth. continue to cook, stirring occasionally, until it begins to thicken into a sauce, about 5 minutes; remove from heat."
+        },
+        "4":{
+            "methods":[
+                "layer",
+                "sprinkle",
+                "cover",
+                "pour",
+                "arrange"
+            ],
+            "tools":[
+                "baking dish",
+                "dish"
+            ],
+            "time":[],
+            "ingredients":[
                 "potatoes",
+                "cheese",
                 "onion"
             ],
-            "action":" cover the bottom of the prepared baking dish with about half the potato slices and diced onion. sprinkle about half the cheddar cheese over the potato mixture. arrange the tofu over cheese layer. layer remaining potatoes and onion atop the tofu chops. pour the sauce evenly over the potato mixture."
+            "action":" cover the bottom of the prepared baking dish with about half the potato slices and diced onion. sprinkle about half the cheddar cheese over the potato mixture. arrange the pork chops over cheese layer. layer remaining potatoes and onion atop the pork chops. pour the sauce evenly over the potato mixture."
         },
         "5":{
             "methods":[],
             "tools":[
-                "dish",
-                "oven"
+                "oven",
+                "dish"
             ],
             "time":[
-                "5 minutes",
-                "1 hour"
+                "1 hour",
+                "5 minutes"
             ],
             "ingredients":[
                 "cheese"
