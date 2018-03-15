@@ -14,14 +14,13 @@ class ingredient(object):
 
     def __init__(self,ingredientText):
         self.stopwords = nltk.corpus.stopwords.words('english') + list(string.punctuation)
-        # self.ing = OrderedDict()
-        self.ing = {}
+        self.ing = OrderedDict()
+        #self.ing = {}
         self.ing["name"] = ""
         self.ing["quantity"] = ""
         self.ing["measurement"] = []
         self.ing["descriptor"] = []
         self.ing["preparation"] = []
-        self.ing["tag"] = ""
         
 
         quantityText = re.search('(\d+([\s\.\/\d]+)?)+', ingredientText)
@@ -43,6 +42,10 @@ class ingredient(object):
         # print (ingredientText)
 
         tokens = nltk.tokenize.word_tokenize(ingredientText)
+        bigrams = nltk.bigrams(tokens)
+        bigramsTokens = []
+        for g in bigrams:
+            bigramsTokens.append(" ".join(g))
         # print (tokens)
         measurementList = []
         descriptorList = []
@@ -67,20 +70,39 @@ class ingredient(object):
         if len(self.ing["measurement"]) == 0:
             self.ing["measurement"].append("unit")
 
+        for token in bigramsTokens:
+            if token in keyWords.unitsList:
+                measurement = token
+                if measurement in keyWords.unitsAbbrToFull:
+                    measurement = keyWords[measurement]
+                self.ing["measurement"].append(measurement)
+                ingredientText = ingredientText.replace(token,'')
+
+            if token in keyWords.descriptorList:
+                self.ing["descriptor"].append(token)
+                ingredientText = ingredientText.replace(token,'')
+
+            if token in keyWords.preparationList:
+                self.ing["preparation"].append(token)
+                ingredientText = ingredientText.replace(token,'')
+
+        if len(self.ing["measurement"]) == 0:
+            self.ing["measurement"].append("unit")
+
 
         tokens = nltk.tokenize.word_tokenize(ingredientText)
         totensList = []
         for token in tokens:
             if token in self.stopwords:
                 continue
-            totensList.append(token)
+            totensList.append(token.lower())
         self.ing["name"] = (" ").join(totensList)
        
 
 class parser(object):
 
     def __init__(self,url,resPath="output.json"):
-        self.res = {}
+        self.res = OrderedDict()
         self.text = requests.get(url).text
         self.soup = BeautifulSoup(self.text,"html.parser")
         self.res["URL"] = url
@@ -122,7 +144,10 @@ class parser(object):
     
     def parserDirection(self):
         directionTextRaw = self.soup.find_all('span', {"class": "recipe-directions__list--item"})
+        self.res["Tools"] = None
+        self.res["Methods"] = {}
         self.res["directions"] = []
+
         for directionText in directionTextRaw:
             directionText =  directionText.text.strip().encode('ascii').lower().decode()
             if directionText.strip() == "":
@@ -140,16 +165,26 @@ class parser(object):
             ingredientsStep = []
             #uni-gram
             for t in uniStepsTokens:
+
+
                 if t in keyWords.primaryMethodsList:
                     self.primaryMethods.append(t)
 
-                if t in keyWords.methodList:
-                    t = WordNetLemmatizer().lemmatize(t,'v')
-                    self.methods.append(t)
-                    methodStep.append(t)
-                    if t in keyWords.method2Tool:
-                        self.tools.append(keyWords.method2Tool[t])
-                        toolsStep.append(keyWords.method2Tool[t])
+                if t in keyWords.methodList and t not in keyWords.primaryMethodsList:
+
+                    tmp = WordNetLemmatizer().lemmatize(t,'v')
+
+                    # correct some worse case:
+                    if tmp == "cub":
+                        tmp = "cube"
+                    if tmp == "par":
+                        tmp = "pare"
+
+                    self.methods.append(tmp)
+                    methodStep.append(tmp)
+                    if tmp in keyWords.method2Tool:
+                        self.tools.append(keyWords.method2Tool[tmp])
+                        toolsStep.append(keyWords.method2Tool[tmp])
 
 
                 if t in keyWords.toolList:
@@ -163,10 +198,11 @@ class parser(object):
             
             #bigram
             for t in bigramsStepsTokens:
+
                 if t in keyWords.primaryMethodsList:
                     self.primaryMethods.append(t)
 
-                if t in keyWords.methodList:
+                if t in keyWords.methodList and t not in keyWords.primaryMethodsList:
                     self.methods.append(t)
                     methodStep.append(t)
                     if t in keyWords.method2Tool:
@@ -178,7 +214,7 @@ class parser(object):
                     self.tools.append(t)
                     toolsStep.append(t)
                    
-            timeMatchList = re.findall(r'([\d\/\.]+)\s?(([\-to\d\/\. ]+)?)\s?(min(?:(?:utes?)?|.?)?|sec(?:(?:onds?)?|.?)?|h(?:(?:ours?|rs?.?)?))\s?(?:per side|each side)?',directionText)
+            timeMatchList = re.findall(r'(([\d\/\.]+)\s?(([\-to\d\/\. ]+)?)\s?(min(?:(?:utes?)?|.?)?|sec(?:(?:onds?)?|.?)?|h(?:(?:ours?|rs?.?)?))\s?(?:per side|each side)?)',directionText)
             # if costTime != None:
             #     timesStep.append(costTime.group(0).strip())
             for t in timeMatchList:

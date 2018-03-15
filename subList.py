@@ -29,35 +29,12 @@ yellowfinTuna = parser.ingredient("fillet of yellowfin tuna")
 
 nonMeatSubList = [slicedBacon.ing, beef.ing, caribou.ing, chicken.ing, salmon.ing, duck.ing, halibut.ing, ham.ing, lamb.ing, mutton.ing, pork.ing, snapper.ing, turkey.ing, veal.ing, venison.ing, walleye.ing, yellowfinTuna.ing]
 
-
-bacon = parser.ingredient("Bacon")
-wBread = parser.ingredient("white bread")
-bCrumbs = parser.ingredient("Bread crumbs")
-butter = parser.ingredient("Butter")
-margarine = parser.ingredient("margarine")
-egg = parser.ingredient("Eggs")
-apFlour = parser.ingredient("all-purpose flour")
-gBeef = parser.ingredient("ground beef")
-iLettuce = parser.ingredient("iceberg lettuce")
-mayon = parser.ingredient("mayonnaise")
-eMilk = parser.ingredient("evaporated milk")
-wMilk = parser.ingredient("whole milk")
-pasta = parser.ingredient("pasta")
-wRice = parser.ingredient("white rice")
-sCream = parser.ingredient("sour cream")
-yogurt = parser.ingredient("yogurt")
-sugar = parser.ingredient("sugar")
-cChips = parser.ingredient("chocolate chips")
-vOil = parser.ingredient("vegetable oil")
-cCheese = parser.ingredient("cream cheese")
-
-
-
 cBacon = parser.ingredient("Canadian bacon")
 tBacon = parser.ingredient("turkey bacon")
 sTurkey = parser.ingredient("smoked turkey")
 leanPro = parser.ingredient("lean prosciutto")
 wgBread = parser.ingredient("Whole-grain bread")
+rOats = parser.ingredient("Rolled oats")
 cbCereal = parser.ingredient("crushed bran cereal")
 gfSeeds = parser.ingredient("ground flax seeds")
 appSauce = parser.ingredient("Applesauce")
@@ -91,70 +68,157 @@ stevia = parser.ingredient("stevia")
 cNibs = parser.ingredient("cacao nibs")
 cOil = parser.ingredient("coconut oil")
 ffcCheese = parser.ingredient("Fat free cream cheese")
+GreesePanButter = parser.ingredient("greese pan with Butter")
+GreesePanMag = parser.ingredient("greese pan with margarine")
+ffCheese = parser.ingredient("fat free cheese")
 
-# healtyDict = {
-#     canadianbacon.ing["name"]:bacon.ing,
-#     turkeybacon.ing["name"]:bacon.ing,
-#     smokedturkey.ing["name"]:bacon.ing,
-#     leanprosciutto.ing["name"]:bacon.ing,
-#     whole-grainbread.ing["name"]:whitebread.ing,
-#     rolledoats.ing["name"]:breadcrumbs.ing,
-#     crushedbrancereal.ing["name"]:breadcrumbs.ing,
-#     groundflaxseeds.ing["name"]:breadcrumbs.ing,
-#     applesauce.ing["name"]:butter.ing,
-#     cookingspray.ing["name"]:greesepanwithbutter.ing,
-#     eggwhite.ing["name"]:eggs.ing,
-#     whole-wheatpastryflour.ing["name"]:allpurposeflour.ing,
-#     extra-leangroundbeef.ing["name"]:groundbeef.ing,
-#     leangroundbeef.ing["name"]:groundbeef.ing,
-#     groundchickenbreast.ing["name"]:groundbeef.ing,
-#     groundturkeybreast.ing["name"]:groundbeef.ing,
-#     arugula.ing["name"]:iceberglettuce.ing,
-#     chicory.ing["name"]:iceberglettuce.ing,
-#     collardgreens.ing["name"]:iceberglettuce.ing,
-#     kale.ing["name"]:iceberglettuce.ing,
-#     spinach.ing["name"]:iceberglettuce.ing,
-#     watercress.ing["name"]:iceberglettuce.ing,
-#     reduced-caloriemayonnaise.ing["name"]:mayonnaise.ing,
-#     evaporatedskimmilk.ing["name"]:evaporatedmilk.ing,
-#     reducedfatmilk.ing["name"]:wholemilk.ing,
-#     skimmilk.ing["name"]:wholemilk.ing,
-#     whole-wheatpasta.ing["name"]:pasta.ing,
-#     brownrice.ing["name"]:whiterice.ing,
-#     wildrice.ing["name"]:whiterice.ing,
-#     fatfreesourcream.ing["name"]:sourcream.ing,
-#     low-fatsourcream.ing["name"]:sourcream.ing,
-#     low-fatplainyogurt.ing["name"]:sourcream.ing,
-#     fat-freeplainyogurt.ing["name"]:sourcream.ing,
-#     greekyogurt.ing["name"]:sourcream.ing,
-#     plainlow-fatyogurt.ing["name"]:yogurt.ing,
-#     stevia.ing["name"]:sugar.ing,
-#     cacaonibs.ing["name"]:chocolatechips.ing,
-#     coconutoil.ing["name"]:vegetableoil.ing,
-#     fatfreecreamcheese.ing["name"]:creamcheese.ing
-# }
-#
-#
-# nonHealthyDict = {
-#     bacon.ing["name"]: canadianbacon.ing,
-#     whitebread.ing["name"]: whole-grainbread.ing,
-#     breadcrumbs.ing["name"]: rolledoats.ing,
-#     butter.ing["name"]: applesauce.ing,
-#     margarine.ing["name"]: applesauce.ing,
-#     greesepanwithButter.ing["name"]: cookingspray.ing,
-#     eggs.ing["name"]: eggwhite.ing,
-#     allpurposeflour.ing["name"]: whole - wheatpastryflour.ing,
-#     groundbeef.ing["name"]: extra - leangroundbeef.ing,
-#     iceberglettuce.ing["name"]: arugula.ing,
-#     mayonnaise.ing["name"]: reduced - caloriemayonnaise.ing,
-#     evaporatedmilk.ing["name"]: evaporatedskimmilk.ing,
-#     wholemilk.ing["name"]: reducedfatmilk.ing,
-#     pasta.ing["name"]: whole - wheatpasta.ing,
-#     whiterice.ing["name"]: brownrice.ing,
-#     sourcream.ing["name"]: fatfreesourcream.ing,
-#     yogurt.ing["name"]: plainlow - fatyogurt.ing,
-#     sugar.ing["name"]: stevia.ing,
-#     chocolatechips.ing["name"]: cacaonibs.ing,
-#     vegetableoil.ing["name"]: coconutoil.ing,
-#     creamcheese.ing["name"]: fatfreecreamcheese.ing
-# }
+bacon = parser.ingredient("Bacon")
+wBread = parser.ingredient("white bread")
+bCrumbs = parser.ingredient("Bread crumbs")
+butter = parser.ingredient("Butter")
+margarine = parser.ingredient("margarine")
+egg = parser.ingredient("Eggs")
+apFlour = parser.ingredient("all-purpose flour")
+gBeef = parser.ingredient("ground beef")
+iLettuce = parser.ingredient("iceberg lettuce")
+mayon = parser.ingredient("mayonnaise")
+eMilk = parser.ingredient("evaporated milk")
+wMilk = parser.ingredient("whole milk")
+pasta = parser.ingredient("pasta")
+wRice = parser.ingredient("white rice")
+sCream = parser.ingredient("sour cream")
+yogurt = parser.ingredient("yogurt")
+sugar = parser.ingredient("sugar")
+cChips = parser.ingredient("chocolate chips")
+vOil = parser.ingredient("vegetable oil")
+cCheese = parser.ingredient("cream cheese")
+cheese = parser.ingredient("cheese")
+
+nonHealthyDict = {
+	bacon.ing["name"]:cBacon.ing,
+	wBread.ing["name"]:wgBread.ing,
+	bCrumbs.ing["name"]:rOats.ing,
+	butter.ing["name"]:appSauce.ing,
+	margarine.ing["name"]:appSauce.ing,
+	GreesePanButter.ing["name"]:cSpray.ing,
+	GreesePanMag.ing["name"]:cSpray.ing,
+	egg.ing["name"]:eWhite.ing,
+	apFlour.ing["name"]:wpFlour.ing,
+	gBeef.ing["name"]:elgBeef.ing,
+	iLettuce.ing["name"]:arugula.ing,
+	mayon.ing["name"]:rcMayon.ing,
+	eMilk.ing["name"]:esMilk.ing,
+	wMilk.ing["name"]:rfMilk.ing,
+	pasta.ing["name"]:wPasta.ing,
+	wRice.ing["name"]:bRice.ing,
+	sCream.ing["name"]:ffSourCream.ing,
+	yogurt.ing["name"]:plYogurt.ing,
+	sugar.ing["name"]:stevia.ing,
+	cChips.ing["name"]:cNibs.ing,
+	vOil.ing["name"]:cOil.ing,
+	cCheese.ing["name"]:ffcCheese.ing,
+	cheese.ing["name"]:ffCheese.ing
+}
+
+healtyDict = {
+	cBacon.ing["name"]:bacon.ing,
+	tBacon.ing["name"]:bacon.ing,
+	sTurkey.ing["name"]:bacon.ing,
+	leanPro.ing["name"]:bacon.ing,
+	wgBread.ing["name"]:wBread.ing,
+	rOats.ing["name"]:bCrumbs.ing,
+	cbCereal.ing["name"]:bCrumbs.ing,
+	gfSeeds.ing["name"]:bCrumbs.ing,
+	appSauce.ing["name"]:butter.ing,
+	cSpray.ing["name"]:GreesePanButter.ing,
+	eWhite.ing["name"]:egg.ing,
+	wpFlour.ing["name"]:apFlour.ing,
+	elgBeef.ing["name"]:gBeef.ing,
+	lgBeef.ing["name"]:gBeef.ing,
+	gChicken.ing["name"]:gBeef.ing,
+	gTurkey.ing["name"]:gBeef.ing,
+	arugula.ing["name"]:iLettuce.ing,
+	chicory.ing["name"]:iLettuce.ing,
+	cGreen.ing["name"]:iLettuce.ing,
+	kale.ing["name"]:iLettuce.ing,
+	spinach.ing["name"]:iLettuce.ing,
+	watercress.ing["name"]:iLettuce.ing,
+	rcMayon.ing["name"]:mayon.ing,
+	esMilk.ing["name"]:eMilk.ing,
+	rfMilk.ing["name"]:wMilk.ing,
+	sMilk.ing["name"]:wMilk.ing,
+	wPasta.ing["name"]:pasta.ing,
+	bRice.ing["name"]:wRice.ing,
+	wildRice.ing["name"]:wRice.ing,
+	ffSourCream.ing["name"]:sCream.ing,
+	lfSourCream.ing["name"]:sCream.ing,
+	lfpYogurt.ing["name"]:sCream.ing,
+	ffpYogurt.ing["name"]:sCream.ing,
+	gYogurt.ing["name"]:sCream.ing,
+	plYogurt.ing["name"]:yogurt.ing,
+	stevia.ing["name"]:sugar.ing,
+	cNibs.ing["name"]:cChips.ing,
+	cOil.ing["name"]:vOil.ing,
+	ffcCheese.ing["name"]:cCheese.ing,
+	ffCheese.ing["name"]:cheese.ing
+}
+
+
+non_mexican = ["rice", "romano", "teleme", "muenster", "provolone", "monterey jack", "cheddar", "parmesan", "ricotta","feta", "mozzarella"]
+
+spRice = parser.ingredient("spanish rice")
+anejo = parser.ingredient("anejo")
+asadero = parser.ingredient("asadero")
+chihuahua = parser.ingredient("chihuahua")
+cotija = parser.ingredient("cotija")
+qFresco = parser.ingredient("queso fresco")
+qdo = parser.ingredient("queso de oaxaca")
+
+
+
+mexicanSubDict = {
+	"rice":spRice.ing,
+	"romano":anejo.ing,
+	"teleme":asadero.ing,
+	"muenster":asadero.ing,
+	"provolone":asadero.ing,
+	"monterey jack":chihuahua.ing,
+	"cheddar":chihuahua.ing,
+	"parmesan":cotija.ing,
+	"ricotta":qFresco.ing,
+	"feta":qFresco.ing,
+	"mozzarella":qdo.ing
+}
+
+
+nonMexicanSpicyList = ["dried thai chilies", "jalapeno", "peppercorns", "red chili flakes", "szechuan peppercorns", "gochujang", "aleppo pepper", "curry", "garlic powder", "chili powder", "cumin", "oregano", "cilantro", "chopped onion"]
+
+
+
+
+poPepper = parser.ingredient("poblano pepper")
+sePepper = parser.ingredient("serano pepper")
+haPepper = parser.ingredient("habanero pepper")
+chilPow = parser.ingredient("chile-powder")
+acPow = parser.ingredient("ancho chile-powder")
+chipSalsa = parser.ingredient("chips and salsa on the side")
+
+mexicanSpicyList = [poPepper.ing, sePepper.ing, haPepper.ing, chilPow.ing, acPow.ing, chipSalsa.ing]
+
+nonMexicanSpicySubDict = {
+	"dried thai chilies":poPepper.ing,
+	"jalapeno":sePepper.ing,
+	"peppercorns":haPepper.ing,
+	"red chili flakes":poPepper.ing,
+	"szechuan peppercorns":haPepper.ing,
+	"gochujang":haPepper.ing,
+	"aleppo pepper":sePepper.ing,
+	"curry":chilPow.ing,
+	"garlic powder":sePepper.ing,
+	"chili powder":haPepper.ing,
+	"cumin":poPepper.ing,
+	"oregano":chipSalsa.ing,
+	"cilantro":chipSalsa.ing,
+	"chopped onion":chipSalsa.ing
+}
+
