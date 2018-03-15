@@ -1,8 +1,8 @@
-import parser
+import parserrrrrr
 from meatlist import meatlist
 from nonMeatList import nonMeatList
 from subList import meatsubList, nonMeatSubList, nonHealthyDict, healtyDict, mexicanSubDict, non_mexican,\
-nonMexicanSpicyList,nonMexicanSpicySubDict,commonSpicesList,mexicanSpicyList,nonIndianDict,indianSpciyList,nonBeefBroh,nonChickenBroh
+nonMexicanSpicyList,nonMexicanSpicySubDict,commonSpicesList,mexicanSpicyList,nonIndianDict,indianSpciyList
 from nltk.stem.wordnet import WordNetLemmatizer
 import json
 import utils
@@ -109,45 +109,9 @@ class transform(object):
         i = 1
         for ing in self.newrecipe["ingredients"]:
             #print (ing)
-
-            if ing["name"] == "chicken broth" or ing["name"].find("chicken broth") >= 0 or ing["name"].find("chicken-broth") >= 0:
-                self.newrecipe["directions"] = self.updateingredForDirection(self.newrecipe["directions"],
-                                                                            copy.deepcopy(nonChickenBroh.ing["name"]),
-                                                                            ing["name"])
-                newTemp = self.updateingredForIngredient(copy.deepcopy(nonChickenBroh.ing), ing, None)
-                newingredientlist.append(newTemp)
-
-                print ("sub" + str(i))
-                i += 1
-                print ("original ingredient:")
-                utils.printDict(ing)
-                print ("new ingredient:")
-                utils.printDict(newTemp)
-                print ("\n")
-                flag = False
-                continue
-
-            if ing["name"] == "beef broth" or ing["name"].find("beef broth") >= 0 or ing["name"].find("beef-broth") >= 0:
-                self.newrecipe["directions"] = self.updateingredForDirection(self.newrecipe["directions"],
-                                                                            copy.deepcopy(nonBeefBroh.ing["name"]),
-                                                                            ing["name"])
-                newTemp = self.updateingredForIngredient(copy.deepcopy(nonBeefBroh.ing), ing, None)
-                newingredientlist.append(newTemp)
-
-                print ("sub" + str(i))
-                i += 1
-                print ("original ingredient:")
-                utils.printDict(ing)
-                print ("new ingredient:")
-                utils.printDict(newTemp)
-                print ("\n")
-                flag = False
-                continue
-
             namewords = ing["name"].split()
             flag = True
             for n in namewords:
-
                 if n in meatlist and cnt < len(meatsubList):
 
                     self.newrecipe["directions"] = self.updateingredForDirection(self.newrecipe["directions"],meatsubList[cnt]["name"],ing["name"])
@@ -220,7 +184,7 @@ class transform(object):
 
             flag = True
             if ing["name"] in nonHealthyDict:
-                if "butter" in ing["name"] or "sugar" in ing["name"]:
+                if ing["name"] == "butter" or ing["name"] == "sugar":
                     halfquantity = 0.5
                 else:
                     halfquantity = None
@@ -257,7 +221,7 @@ class transform(object):
 
             flag = True
             if ing["name"] in healtyDict:
-                if "butter" in ing["name"] or "sugar" in ing["name"]:
+                if ing["name"] == "butter" or ing["name"] == "sugar":
                     halfquantity = 2
                 else:
                     halfquantity = None
@@ -454,6 +418,51 @@ class transform(object):
 
             if flag:
                 newingredientlist.append(ing)
+            # Check for difficult cooking methods to swap out -> check for tools to swap out
+
+            # Remove some of the difficult cooking methods
+            swap_Methods = ["cube", "grate", "poach", "smoke"]
+            swap_dict = {
+                'cube': "slice",
+                'grate': "", # remove and add "grated x" to cooking list
+                'poach': "cook on stovetop", # adjust time
+                'smoke': "", # buy smoked ingredient from store
+            }
+
+            primary_Methods = self.newrecipe["ingredients"][0]
+
+            for s in primary_Methods:
+                for change in swap_Methods:
+                    if s in change:
+                        newMethod = swap_dict[s]
+                        if "poach" in newMethod:
+                            # remove poaching step, add cook on stovetop for 2/3 of time poaching
+                            # add to tools frying pan -> add to steps grease pan wth olive oil
+                            for step in self.newrecipe["steps"]:
+                                if "poach" in step["action"]:
+                                    step["action"] = "Cook on stovetop"
+                                    step["tools"] = "frying pan"
+                                    step["method"] = "cooking on stovetop"
+                                    step["time"] = int(step["time"]) * 0.66
+                        if "smoke" in newMethod:
+                            for step in self.newrecipe["steps"]:
+                                if "smoke" in step["action"]:
+                                # remove smoking step.  Add to ingredients list "smoked x" where x is ingredient you are smoking
+                                    step["action"] = ""
+                                    step["tools"] = ""
+                                    step["method"] = ""
+                                    step["time"] = ""
+                                    temp = step["ingredients"][0]
+                                    step["ingredients"] = "smoked " + step["ingredients"][0]
+                                    # for ing in self.newrecipe["ingredients"]:
+                                        # if ing
+                        if "grate" in newMethod:
+                            for step in self.newrecipe["steps"]:
+                                if "grate" in step["action"]:
+                            # remove and add "grated x" to cooking list
+                                    step["action"] = ""
+                                    step["tools"] = ""
+                                    step["ingredients"] = "grated " + step["ingredients"][0]
 
         if i == 1:
             print ("can not find anything that can make recipe easier")
@@ -527,21 +536,4 @@ class transform(object):
 
         if i == 1:
             print ("can not find a cooking method that can be replaced")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

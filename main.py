@@ -1,4 +1,4 @@
-import parser
+import parserrrrrr
 import transfrom
 import json
 import keyWords
@@ -47,7 +47,7 @@ press 2: do transformation\npress 3: show old recipe(you can also find the old r
 (default:https://www.allrecipes.com/recipe/232458/pork-chops-with-creamy-scalloped-potatoes/)\n"))
             if len(url.strip()) == 0:
                 url = 'https://www.allrecipes.com/recipe/232458/pork-chops-with-creamy-scalloped-potatoes/'
-            test = parser.parser(url, resPath)
+            test = parserrrrrr.parser(url, resPath)
             test.parserIngredient()
             test.parserDirection()
             utils.printDict(utils.recipeAddNumber(test.res))
