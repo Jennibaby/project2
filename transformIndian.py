@@ -1,17 +1,5 @@
 import random
 
-from bs4 import BeautifulSoup
-import requests
-import nltk
-import json
-import keyWords
-import re
-from fractions import Fraction
-import string
-#from en import verb
-from nltk.stem.wordnet import WordNetLemmatizer
-from collections import OrderedDict
-
 indian = [
     ["ajwain"],
     ["amchoor"],
@@ -19,8 +7,6 @@ indian = [
     ["black cumin seends"],
     ["black mustard seeds", "brown mustard seeds"],
     ["cardamom"],
-    # ["brown cardamom", "black cardamom"],
-    # ["turmeric"],
     ["nigella"],
     ["whiite poppy seeds"],
     ["smoked turkey"],
@@ -34,10 +20,6 @@ indian = [
     ["lamb shank"],
     ["lamb shoulder"],
     ["sirloin chop lamb"],
-
-# ["Boneless lamb leg"],
-# ["Bone-in Lamb leg"],
-
     ["Naan"]
 
 ]
@@ -49,8 +31,6 @@ non_indian = [
     ["sesame seeds"],
     ["wasabi", "horseradish"],
     ["1/2 cinnamon, 1/2 nutmeg", "1/2 cinnamon, 1/2 ginger", "1/2 cinnamon, 1/2 ground cloves"], #nutmeg
-    # [""],
-    # [""],
     ["celery seeds", "oregano", "sesame seeds"], # cumin seeds
     ["poppy seeds"], # consider removing
     ["ham"],
@@ -64,13 +44,6 @@ non_indian = [
     ["beef shank"],
     ["beef shoulder", "beef chuck"],
     ["beef sirloin"],
-
-    # ["beef brisket"],
-    # ["beef short plate"],
-    # ["beef flank"],
-    # ["beef loin"],
-    # ["beef round"],
-
     ["bread"] # TODO turn to list
 ]
 
@@ -90,31 +63,6 @@ test_recipe_Ingredients = [
     "pork sausage"
 ]
 
-
-# To Indian
-contains_non_indian = []
-indian_replaceent = []
-for x in test_recipe_Ingredients:
-    #print(x)
-    place = -1
-    for n in non_indian:
-        #print(n)
-        place = place + 1
-        for i in n:
-            #print(i)
-            if i in x:
-                print("contains " + i)
-                replacement = indian[place]
-                print(replacement)
-                a = x.replace(i, replacement[0])
-                print(x)
-                print(a)
-                contains_non_indian.append(i)
-                indian_replaceent.append(replacement)
-              #  print("replacement " + replacement)
-        #    print(place)
-        #place = place + 1
-
 steps = [{'ingredients': [], 'methods': ['bake', 'grease', 'preheat'], 'tools': ['tablespoon', 'dish', 'baking dish', 'oven'], 'time': [], 'action': 'preheat oven to 350 degrees f (175 degrees c). grease a 9x13-inch baking dish with 1 tablespoon butter.'},
          {'ingredients': [], 'methods': ['heat', 'melt', 'salt', 'season'], 'tools': ['tablespoon', 'skillet'],
           'time': ['3'],
@@ -128,16 +76,39 @@ steps = [{'ingredients': [], 'methods': ['bake', 'grease', 'preheat'], 'tools': 
           'action': 'cover the bottom of the prepared baking dish with about half the potato slices and diced onion. sprinkle about half the cheddar cheese over the potato mixture. arrange the pork chops over cheese layer. layer remaining potatoes and onion atop the pork chops. pour the sauce evenly over the potato mixture.'},
          {'ingredients': [], 'methods': ['bake', 'preheat', 'broil'], 'tools': ['dish', 'oven'], 'time': ['5', '1'],
           'action': 'bake in preheated oven for 1 hour. top dish with remaining cheddar cheese, switch oven to broil, and continue baking until the top is browned and bubbly, about 5 minutes.'}]
-for step in steps:
-    index = -1
-    for n in contains_non_indian:
-        index = index + 1
-        s = step.get('action')
-        if n in s:
-            s = s.replace(n, indian_replaceent[index][0])
-            step['action'] = s
 
-print(steps)
+
+def toIndian(ingredients, steps):
+    # To Indian
+    contains_non_indian = []
+    indian_replaceent = []
+    for x in test_recipe_Ingredients:
+        #print(x)
+        place = -1
+        for n in non_indian:
+            #print(n)
+            place = place + 1
+            for i in n:
+                #print(i)
+                if i in x:
+                    print("contains " + i)
+                    replacement = indian[place]
+                    print(replacement)
+                    a = x.replace(i, replacement[0])
+                    print(x)
+                    print(a)
+                    contains_non_indian.append(i)
+                    indian_replaceent.append(replacement)
+    for step in steps:
+        index = -1
+        for n in contains_non_indian:
+            index = index + 1
+            s = step.get('action')
+            if n in s:
+                s = s.replace(n, indian_replaceent[index][0])
+                step['action'] = s
+    print(steps)
+
 
 
 # From Indian
@@ -164,3 +135,6 @@ def fromIndian(ingredients, steps):
                 s = s.replace(n, non_indian_replacement[index][0])
                 step['action'] = s
 
+
+
+toIndian(test_recipe_Ingredients, steps)
