@@ -6,6 +6,8 @@ tempeh = parser.ingredient("sliced tempeh")
 lentil = parser.ingredient("burger patty")
 mushroom = parser.ingredient("large portabella mushroom")
 texturedVegetableProtein = parser.ingredient("dry Textured Vegetable Protein")
+nonChickenBroh = parser.ingredient("Better-Than Boullion non-chicken broth")
+nonBeefBroh = parser.ingredient("Better-Than Boullion non-beef broth")
 
 meatsubList = [tofu.ing,seitan.ing,tempeh.ing,lentil.ing,mushroom.ing,texturedVegetableProtein.ing]
 
@@ -71,6 +73,7 @@ ffcCheese = parser.ingredient("Fat free cream cheese")
 GreesePanButter = parser.ingredient("greese pan with Butter")
 GreesePanMag = parser.ingredient("greese pan with margarine")
 ffCheese = parser.ingredient("fat free cheese")
+butterOrMargarine = parser.ingredient("butter or margarine")
 
 bacon = parser.ingredient("Bacon")
 wBread = parser.ingredient("white bread")
@@ -99,6 +102,7 @@ nonHealthyDict = {
 	wBread.ing["name"]:wgBread.ing,
 	bCrumbs.ing["name"]:rOats.ing,
 	butter.ing["name"]:appSauce.ing,
+	butterOrMargarine.ing["name"]:appSauce.ing,
 	margarine.ing["name"]:appSauce.ing,
 	GreesePanButter.ing["name"]:cSpray.ing,
 	GreesePanMag.ing["name"]:cSpray.ing,

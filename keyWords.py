@@ -1,4 +1,7 @@
-unitsList = ["tsp",
+unitsList = [
+"bottle",
+"bottles",
+"tsp",
 "tbsp",
 "Tbl",
 "fl oz",

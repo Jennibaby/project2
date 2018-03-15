@@ -23,14 +23,24 @@ class ingredient(object):
         self.ing["descriptor"] = []
         self.ing["preparation"] = []
 
+        quantity = None
+
         quantityText = re.search('(\d+([\s\.\/\d]+)?)+', ingredientText)
         # print (quantityText)
-        quantity = None
         if quantityText != None:
             quantityTextList = quantityText.group(0).strip().split()
             if quantityTextList != None or len(quantityTextList) != 0:
                 quantity = float(sum(Fraction(q) for q in quantityTextList))
-                ingredientText = ingredientText.replace(quantityText.group(0), '')
+                ingredientText = ingredientText.replace(quantityText.group(0), '',1)
+
+            #handle case of 2 (12 fluid ounce) cans or bottles => 24 fluid ounce
+            quantityText = re.search('(\d+([\s\.\/\d]+)?)+', ingredientText)
+            if quantityText != None:
+                quantityTextList = quantityText.group(0).strip().split()
+                if quantityTextList != None or len(quantityTextList) != 0:
+                    quantity *= float(sum(Fraction(q) for q in quantityTextList))
+                    ingredientText = ingredientText.replace(quantityText.group(0), '', 1)
+
 
         if quantity == None:
             quantity = 1
@@ -50,31 +60,13 @@ class ingredient(object):
         descriptorList = []
         preparationList = []
 
-        for token in tokens:
-            if token in keyWords.unitsList:
-                measurement = token
-                if measurement in keyWords.unitsAbbrToFull:
-                    measurement = keyWords[measurement]
-                self.ing["measurement"].append(measurement)
-                ingredientText = ingredientText.replace(token, '')
-
-            if token in keyWords.descriptorList:
-                self.ing["descriptor"].append(token)
-                ingredientText = ingredientText.replace(token, '')
-
-            if token in keyWords.preparationList:
-                self.ing["preparation"].append(token)
-                ingredientText = ingredientText.replace(token, '')
-
-        if len(self.ing["measurement"]) == 0:
-            self.ing["measurement"].append("unit")
-
         for token in bigramsTokens:
             if token in keyWords.unitsList:
                 measurement = token
                 if measurement in keyWords.unitsAbbrToFull:
                     measurement = keyWords[measurement]
-                self.ing["measurement"].append(measurement)
+                if len(self.ing["measurement"]) <= 0:
+                    self.ing["measurement"].append(measurement)
                 ingredientText = ingredientText.replace(token, '')
 
             if token in keyWords.descriptorList:
@@ -88,10 +80,35 @@ class ingredient(object):
         if len(self.ing["measurement"]) == 0:
             self.ing["measurement"].append("unit")
 
+
+        for token in tokens:
+            if token in keyWords.unitsList:
+                measurement = token
+                if measurement in keyWords.unitsAbbrToFull:
+                    measurement = keyWords[measurement]
+                if len(self.ing["measurement"]) <= 0:
+                    self.ing["measurement"].append(measurement)
+                ingredientText = ingredientText.replace(token, '')
+
+            if token in keyWords.descriptorList:
+                self.ing["descriptor"].append(token)
+                ingredientText = ingredientText.replace(token, '')
+
+            if token in keyWords.preparationList:
+                self.ing["preparation"].append(token)
+                ingredientText = ingredientText.replace(token, '')
+
+        if len(self.ing["measurement"]) == 0:
+            self.ing["measurement"].append("unit")
+
+
+
         tokens = nltk.tokenize.word_tokenize(ingredientText)
         totensList = []
         for token in tokens:
             if token in self.stopwords:
+                if token == "or" and len(totensList) > 0:
+                    totensList.append(token.lower())
                 continue
             totensList.append(token.lower())
         self.ing["name"] = (" ").join(totensList)
@@ -157,6 +174,24 @@ class parser(object):
             toolsStep = []
             timesStep = []
             ingredientsStep = []
+            # bigram
+            for t in bigramsStepsTokens:
+
+                if t in keyWords.primaryMethodsList:
+                    self.primaryMethods.append(t)
+
+                if t in keyWords.methodList and t not in keyWords.primaryMethodsList:
+                    self.methods.append(t)
+                    methodStep.append(t)
+                    if t in keyWords.method2Tool:
+                        self.tools.append(keyWords.method2Tool[t])
+                        toolsStep.append(keyWords.method2Tool[t])
+
+                if t in keyWords.toolList:
+                    self.tools.append(t)
+                    toolsStep.append(t)
+
+
             # uni-gram
             for t in uniStepsTokens:
 
@@ -191,22 +226,7 @@ class parser(object):
                     if t == ingred.split()[0]:
                         ingredientsStep.append(ingred)
 
-                        # bigram
-            for t in bigramsStepsTokens:
 
-                if t in keyWords.primaryMethodsList:
-                    self.primaryMethods.append(t)
-
-                if t in keyWords.methodList and t not in keyWords.primaryMethodsList:
-                    self.methods.append(t)
-                    methodStep.append(t)
-                    if t in keyWords.method2Tool:
-                        self.tools.append(keyWords.method2Tool[t])
-                        toolsStep.append(keyWords.method2Tool[t])
-
-                if t in keyWords.toolList:
-                    self.tools.append(t)
-                    toolsStep.append(t)
 
             timeMatchList = re.findall(
                 r'(([\d\/\.]+)\s?(([\-to\d\/\. ]+)?)\s?(min(?:(?:utes?)?|.?)?|sec(?:(?:onds?)?|.?)?|h(?:(?:ours?|rs?.?)?))\s?(?:per side|each side)?)',

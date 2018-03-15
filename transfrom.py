@@ -2,7 +2,7 @@ import parser
 from meatlist import meatlist
 from nonMeatList import nonMeatList
 from subList import meatsubList, nonMeatSubList, nonHealthyDict, healtyDict, mexicanSubDict, non_mexican,\
-nonMexicanSpicyList,nonMexicanSpicySubDict,commonSpicesList,mexicanSpicyList,nonIndianDict,indianSpciyList
+nonMexicanSpicyList,nonMexicanSpicySubDict,commonSpicesList,mexicanSpicyList,nonIndianDict,indianSpciyList,nonBeefBroh,nonChickenBroh
 from nltk.stem.wordnet import WordNetLemmatizer
 import json
 import utils
@@ -109,9 +109,45 @@ class transform(object):
         i = 1
         for ing in self.newrecipe["ingredients"]:
             #print (ing)
+
+            if ing["name"] == "chicken broth" or ing["name"].find("chicken broth") >= 0 or ing["name"].find("chicken-broth") >= 0:
+                self.newrecipe["directions"] = self.updateingredForDirection(self.newrecipe["directions"],
+                                                                            copy.deepcopy(nonChickenBroh.ing["name"]),
+                                                                            ing["name"])
+                newTemp = self.updateingredForIngredient(copy.deepcopy(nonChickenBroh.ing), ing, None)
+                newingredientlist.append(newTemp)
+
+                print ("sub" + str(i))
+                i += 1
+                print ("original ingredient:")
+                utils.printDict(ing)
+                print ("new ingredient:")
+                utils.printDict(newTemp)
+                print ("\n")
+                flag = False
+                continue
+
+            if ing["name"] == "beef broth" or ing["name"].find("beef broth") >= 0 or ing["name"].find("beef-broth") >= 0:
+                self.newrecipe["directions"] = self.updateingredForDirection(self.newrecipe["directions"],
+                                                                            copy.deepcopy(nonBeefBroh.ing["name"]),
+                                                                            ing["name"])
+                newTemp = self.updateingredForIngredient(copy.deepcopy(nonBeefBroh.ing), ing, None)
+                newingredientlist.append(newTemp)
+
+                print ("sub" + str(i))
+                i += 1
+                print ("original ingredient:")
+                utils.printDict(ing)
+                print ("new ingredient:")
+                utils.printDict(newTemp)
+                print ("\n")
+                flag = False
+                continue
+
             namewords = ing["name"].split()
             flag = True
             for n in namewords:
+
                 if n in meatlist and cnt < len(meatsubList):
 
                     self.newrecipe["directions"] = self.updateingredForDirection(self.newrecipe["directions"],meatsubList[cnt]["name"],ing["name"])
@@ -184,7 +220,7 @@ class transform(object):
 
             flag = True
             if ing["name"] in nonHealthyDict:
-                if ing["name"] == "butter" or ing["name"] == "sugar":
+                if "butter" in ing["name"] or "sugar" in ing["name"]:
                     halfquantity = 0.5
                 else:
                     halfquantity = None
@@ -221,7 +257,7 @@ class transform(object):
 
             flag = True
             if ing["name"] in healtyDict:
-                if ing["name"] == "butter" or ing["name"] == "sugar":
+                if "butter" in ing["name"] or "sugar" in ing["name"]:
                     halfquantity = 2
                 else:
                     halfquantity = None

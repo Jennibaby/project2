@@ -1,32 +1,210 @@
 {
     "ingredients":{
         "1":{
-            "name":"applesauce",
+            "name":"tofu",
+            "quantity":4.0,
+            "measurement":[
+                "unit"
+            ],
+            "descriptor":[],
+            "preparation":[
+                "sliced"
+            ]
+        },
+        "2":{
+            "name":"seitan",
             "quantity":2.5,
             "measurement":[
-                "tablespoons"
+                "unit"
+            ],
+            "descriptor":[],
+            "preparation":[
+                "sliced"
+            ]
+        },
+        "3":{
+            "name":"tempeh",
+            "quantity":1.5,
+            "measurement":[
+                "unit"
+            ],
+            "descriptor":[],
+            "preparation":[
+                "sliced"
+            ]
+        },
+        "4":{
+            "name":"water",
+            "quantity":7.0,
+            "measurement":[
+                "unit"
             ],
             "descriptor":[],
             "preparation":[]
         },
-        "2":{
-            "name":"thick-cut pork chops",
-            "quantity":6.0,
+        "5":{
+            "name":"better-than boullion non-chicken broth",
+            "quantity":3.0,
+            "measurement":[
+                "unit"
+            ],
+            "descriptor":[],
+            "preparation":[]
+        },
+        "6":{
+            "name":"cloves garlic",
+            "quantity":3.0,
             "measurement":[
                 "unit"
             ],
             "descriptor":[
-                "boneless"
+                "whole"
             ],
-            "preparation":[
-                "boneless"
-            ]
+            "preparation":[]
         },
-        "3":{
-            "name":"salt pepper",
+        "7":{
+            "name":"bay",
+            "quantity":2.0,
+            "measurement":[
+                "unit"
+            ],
+            "descriptor":[
+                "leaves"
+            ],
+            "preparation":[]
+        },
+        "8":{
+            "name":"water cover",
             "quantity":1,
             "measurement":[
-                "taste"
+                "unit"
+            ],
+            "descriptor":[],
+            "preparation":[]
+        },
+        "9":{
+            "name":"oil",
+            "quantity":1.0,
+            "measurement":[
+                "unit"
+            ],
+            "descriptor":[
+                "vegetable"
+            ],
+            "preparation":[]
+        },
+        "10":{
+            "name":"onion",
+            "quantity":2.0,
+            "measurement":[
+                "unit"
+            ],
+            "descriptor":[],
+            "preparation":[
+                "diced"
+            ]
+        },
+        "11":{
+            "name":"carrots",
+            "quantity":2.0,
+            "measurement":[
+                "unit"
+            ],
+            "descriptor":[],
+            "preparation":[
+                "diced"
+            ]
+        },
+        "12":{
+            "name":"stalks celery",
+            "quantity":2.0,
+            "measurement":[
+                "unit"
+            ],
+            "descriptor":[],
+            "preparation":[
+                "diced"
+            ]
+        },
+        "13":{
+            "name":"clove garlic",
+            "quantity":1.0,
+            "measurement":[
+                "unit"
+            ],
+            "descriptor":[],
+            "preparation":[
+                "minced"
+            ]
+        },
+        "14":{
+            "name":"potatoes unpeeled",
+            "quantity":6.0,
+            "measurement":[
+                "unit"
+            ],
+            "descriptor":[],
+            "preparation":[
+                "diced"
+            ]
+        },
+        "15":{
+            "name":"beans inch",
+            "quantity":1.5,
+            "measurement":[
+                "unit"
+            ],
+            "descriptor":[
+                "fresh",
+                "green"
+            ],
+            "preparation":[
+                "cut into",
+                "cut",
+                "pieces"
+            ]
+        },
+        "16":{
+            "name":"tomatoes",
+            "quantity":14.5,
+            "measurement":[
+                "unit"
+            ],
+            "descriptor":[
+                "whole"
+            ],
+            "preparation":[
+                "peeled",
+                "drained"
+            ]
+        },
+        "17":{
+            "name":"salt",
+            "quantity":1.5,
+            "measurement":[
+                "unit"
+            ],
+            "descriptor":[],
+            "preparation":[]
+        },
+        "18":{
+            "name":"rosemary",
+            "quantity":1.0,
+            "measurement":[
+                "unit"
+            ],
+            "descriptor":[
+                "dried"
+            ],
+            "preparation":[
+                "dried"
+            ]
+        },
+        "19":{
+            "name":"pepper",
+            "quantity":0.5,
+            "measurement":[
+                "unit"
             ],
             "descriptor":[
                 "ground",
@@ -36,22 +214,11 @@
                 "ground"
             ]
         },
-        "4":{
-            "name":"mustard",
-            "quantity":2.0,
-            "measurement":[
-                "teaspoons"
-            ],
-            "descriptor":[
-                "dijon"
-            ],
-            "preparation":[]
-        },
-        "5":{
+        "20":{
             "name":"thyme",
-            "quantity":2.0,
+            "quantity":0.5,
             "measurement":[
-                "teaspoons"
+                "unit"
             ],
             "descriptor":[
                 "dried"
@@ -60,207 +227,156 @@
                 "dried"
             ]
         },
-        "6":{
-            "name":"pastry flour",
-            "quantity":3.0,
-            "measurement":[
-                "tablespoons"
-            ],
-            "descriptor":[
-                "whole-wheat"
-            ],
-            "preparation":[]
-        },
-        "7":{
-            "name":"chicken broth",
-            "quantity":2.0,
-            "measurement":[
-                "cups"
-            ],
-            "descriptor":[],
-            "preparation":[]
-        },
-        "8":{
-            "name":"half-and-half",
+        "21":{
+            "name":"peas",
             "quantity":0.5,
             "measurement":[
-                "cup"
+                "unit"
             ],
-            "descriptor":[],
+            "descriptor":[
+                "frozen",
+                "green"
+            ],
             "preparation":[]
         },
-        "9":{
-            "name":"potatoes",
-            "quantity":6.0,
+        "22":{
+            "name":"lemon zest",
+            "quantity":1.5,
             "measurement":[
                 "unit"
             ],
             "descriptor":[],
             "preparation":[
-                "peeled",
-                "thinly",
-                "sliced",
-                "divided"
+                "grated"
             ]
         },
-        "10":{
-            "name":"onion",
+        "23":{
+            "name":"pepper",
             "quantity":0.5,
             "measurement":[
-                "cup"
-            ],
-            "descriptor":[],
-            "preparation":[
-                "diced",
-                "divided"
-            ]
-        },
-        "11":{
-            "name":"cheese",
-            "quantity":1.0,
-            "measurement":[
-                "cup"
+                "unit"
             ],
             "descriptor":[
-                "fat free"
+                "red"
+            ],
+            "preparation":[
+                "crushed"
+            ]
+        },
+        "24":{
+            "name":"chopped parsley garnish",
+            "quantity":0.5,
+            "measurement":[
+                "unit"
+            ],
+            "descriptor":[
+                "fresh"
             ],
             "preparation":[]
         }
     },
     "Tools":[
-        "oven",
-        "baking dish",
-        "saucepan",
-        "skillet",
         "wooden spoon",
-        "tablespoon",
-        "whisk",
-        "dish"
+        "strainer",
+        "skillet",
+        "knife"
     ],
     "Methods":{
         "Primary cooking method":[
-            "broil",
-            "bake"
+            "simmer",
+            "boil"
         ],
         "other method":[
-            "melt",
-            "thicken",
-            "layer",
-            "preheat",
             "remove",
-            "sprinkle",
-            "grease",
+            "combine",
+            "heat",
+            "cut",
+            "strain",
+            "return",
             "stir",
             "cover",
-            "pour",
-            "heat",
-            "flour",
-            "season",
-            "whisk",
-            "arrange"
+            "add",
+            "reduce"
         ]
     },
     "steps":{
         "1":{
             "methods":[
-                "grease",
-                "preheat"
+                "combine",
+                "heat",
+                "cover",
+                "add",
+                "reduce"
             ],
-            "tools":[
-                "oven",
-                "tablespoon",
-                "dish",
-                "baking dish"
+            "tools":[],
+            "time":[
+                "2 hours"
             ],
-            "time":[],
             "ingredients":[
-                "applesauce"
+                "bay",
+                "tofu",
+                "tempeh",
+                "water",
+                "cloves garlic",
+                "water cover",
+                "seitan",
+                "tofu"
             ],
-            "action":" preheat oven to 350 degrees f (175 degrees c). grease a 9x13-inch baking dish with 1 tablespoon butter."
+            "action":" combine the chicken, beef, pork, water and better-than boullion non-chicken broth in a large pot and bring to a boil. add whole cloves of garlic and bay leaves, then reduce heat to low, cover and simmer for 2 hours."
         },
         "2":{
             "methods":[
-                "season",
-                "melt",
-                "heat"
-            ],
-            "tools":[
-                "tablespoon",
-                "skillet"
-            ],
-            "time":[
-                "3 to 5 minutes per side"
-            ],
-            "ingredients":[
-                "applesauce",
-                "salt pepper"
-            ],
-            "action":" melt 1 tablespoon applesauce in a skillet over medium heat. season pork chops with salt and pepper; cook in skillet until browned, 3 to 5 minutes per side."
-        },
-        "3":{
-            "methods":[
-                "melt",
-                "thicken",
                 "remove",
-                "stir",
-                "heat",
-                "flour",
-                "season",
-                "whisk"
+                "strain",
+                "cut",
+                "return",
+                "add"
             ],
             "tools":[
-                "saucepan",
-                "whisk",
-                "wooden spoon"
-            ],
-            "time":[
-                "5 minutes"
-            ],
-            "ingredients":[
-                "thyme",
-                "applesauce",
-                "half-and-half",
-                "mustard",
-                "pastry flour",
-                "chicken broth",
-                "salt pepper"
-            ],
-            "action":" melt remaining 3 tablespoons applesauce in a small saucepan over medium-high heat. stir mustard and thyme into the butter; season with salt and pepper. whisk pastry flour into the applesauce mixture to make a thick paste. slowly whisk chicken broth and half-and-half into the paste mixture until smooth. continue to cook, stirring occasionally, until it begins to thicken into a sauce, about 5 minutes; remove from heat."
-        },
-        "4":{
-            "methods":[
-                "layer",
-                "sprinkle",
-                "cover",
-                "pour",
-                "arrange"
-            ],
-            "tools":[
-                "baking dish",
-                "dish"
+                "strainer",
+                "knife"
             ],
             "time":[],
             "ingredients":[
-                "potatoes",
-                "cheese",
-                "onion"
+                "tofu",
+                "tempeh",
+                "water",
+                "water cover",
+                "seitan",
+                "tofu"
             ],
-            "action":" cover the bottom of the prepared baking dish with about half the potato slices and diced onion. sprinkle about half the cheddar cheese over the potato mixture. arrange the pork chops over cheese layer. layer remaining potatoes and onion atop the pork chops. pour the sauce evenly over the potato mixture."
+            "action":" remove chicken, seitan and pork. strip meats from bones and cut into bite size pieces. strain stock in pot and add water to yield 8 cups of stock. return meats to broth."
         },
-        "5":{
-            "methods":[],
+        "3":{
+            "methods":[
+                "heat",
+                "stir",
+                "add",
+                "reduce"
+            ],
             "tools":[
-                "oven",
-                "dish"
+                "wooden spoon",
+                "skillet"
             ],
             "time":[
-                "1 hour",
+                ". h",
+                "10 minutes",
                 "5 minutes"
             ],
             "ingredients":[
-                "cheese"
+                "lemon zest",
+                "tomatoes",
+                "peas",
+                "oil",
+                "thyme",
+                "pepper",
+                "onion",
+                "rosemary",
+                "salt",
+                "beans inch",
+                "potatoes unpeeled"
             ],
-            "action":" bake in preheated oven for 1 hour. top dish with remaining cheddar cheese, switch oven to broil, and continue baking until the top is browned and bubbly, about 5 minutes."
+            "action":" heat oil in a medium skillet and saute the onion, carrot, celery and minced garlic for about 5 minutes. add saute mixture to pot along with the potatoes, beans, tomatoes, salt, rosemary, pepper and thyme. bring to a boil, reduce heat to low and simmer uncovered for about 10 minutes. stir in the peas, lemon zest and red pepper. heat through and serve garnished with parsley."
         }
     }
 }
