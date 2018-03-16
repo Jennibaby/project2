@@ -1,0 +1,16 @@
+I wrote ingredient class, parser class, transformation class.
+
+I wrote the parserIngredient for extracting ingredients including name, quantity, measurement, descriptor, preparation.
+
+I wrote the parserDirection for do transformation, including to toVegetarian, fromVegetarian, toHealthy, fromHealthy, 
+toMexican, toIndian, DIY, subMethods(cooking methods transformation)
+
+I wrote the subList file, which used data structure of ingredient class to store the knowlege base(or the list) about relationship 
+between different kinds of food and their subtitutes Andrew gave me.
+
+I wrote utils file, which consists of some helper function, suching as writing the recipe result into file, printing the recipe in 
+different format.
+
+I wrote main.py, which handles with the interaction with user, and calls corresponding function to parse the recipe or do 
+transformation.
+
