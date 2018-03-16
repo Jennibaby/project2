@@ -407,6 +407,36 @@ primaryMethodsList = ["boil",
 "smoke"
 ]
 
+
+PCM2Tool = {
+"boil":"pan",
+"bake":"oven",
+"deep-fry":"fry-pan",
+"stir-fry":"fry-pan",
+"simmer":"casserole",
+"baste":"spoon",
+"roast":"oven",
+"grill":"grill pan",
+"broil":"oven",
+"rotisserie":"oven",
+"pan-fry":"fry pan",
+"poach":"cooking pot",
+"steam":"food steamer",
+"braise":"braiser pan",
+"stew":"brazier pot",
+"scald":"pan",
+"sear":"stove",
+"blanch":"cooking pot",
+"coddle":"brazier pot",
+"infuse":"mixing bowl",
+"pressure-cook":"pressure cooker",
+"barbeque":"barbeque",
+"griddle":"pie pan",
+"fry":"fry pan",
+"smoke":"wood-fired oven"
+}
+
+
 methodList = ["chop",
 "stir",
 "beat",
@@ -687,7 +717,33 @@ methodList = ["chop",
 "wipe",
 "wok",
 "wrap",
-"zap"
+"zap",
+"boil",
+"bake",
+"deep-fry",
+"stir-fry",
+"simmer",
+"baste",
+"roast",
+"grill",
+"broil",
+"rotisserie",
+"pan-fry",
+"poach",
+"steam",
+"braise",
+"stew",
+"scald",
+"sear",
+"blanch",
+"coddle",
+"infuse",
+"pressure-cook",
+"barbeque",
+"griddle",
+"sear",
+"fry",
+"smoke"
 ]
 
 toolList = [

@@ -2,7 +2,9 @@ import parser
 from meatlist import meatlist
 from nonMeatList import nonMeatList
 from subList import meatsubList, nonMeatSubList, nonHealthyDict, healtyDict, mexicanSubDict, non_mexican,\
-nonMexicanSpicyList,nonMexicanSpicySubDict,commonSpicesList,mexicanSpicyList,nonIndianDict,indianSpciyList,nonBeefBroh,nonChickenBroh
+nonMexicanSpicyList,nonMexicanSpicySubDict,commonSpicesList,mexicanSpicyList,nonIndianDict,indianSpciyList,\
+nonBeefBroh,nonChickenBroh
+from keyWords import PCM2Tool
 from nltk.stem.wordnet import WordNetLemmatizer
 import json
 import utils
@@ -476,6 +478,8 @@ class transform(object):
 
 
     def updateMethodForDirection(self,directionlist,newMethod,oldMethod):
+        oldtool = PCM2Tool[oldMethod]
+        newtool = PCM2Tool[newMethod]
         newDirectionList = []
         for direction in directionlist:
             newdirection = {}
@@ -490,6 +494,11 @@ class transform(object):
             for method in met:
                 if method == oldMethod:
                     newdirection["methods"].append(newMethod)
+                    if newtool not in newdirection["tools"]:
+                        newdirection["tools"].append(newtool)
+                    if oldtool in newdirection["tools"]:
+                        newdirection["tools"].remove(oldtool)
+
                     continue
                 newdirection["methods"].append(method)
 
@@ -506,7 +515,6 @@ class transform(object):
             newDirectionList.append(newdirection)
 
         return newDirectionList
-
 
 
 

@@ -131,14 +131,14 @@
         }
     },
     "Tools":[
-        "oven",
-        "baking dish",
-        "dish",
-        "wooden spoon",
-        "skillet",
         "tablespoon",
+        "wooden spoon",
         "saucepan",
-        "whisk"
+        "whisk",
+        "dish",
+        "oven",
+        "skillet",
+        "baking dish"
     ],
     "Methods":{
         "Primary cooking method":[
@@ -146,21 +146,21 @@
             "broil"
         ],
         "other method":[
-            "heat",
-            "season",
-            "melt",
-            "sprinkle",
-            "layer",
-            "pour",
             "stir",
-            "thicken",
+            "layer",
             "flour",
-            "remove",
-            "arrange",
+            "melt",
+            "season",
+            "cover",
+            "heat",
+            "sprinkle",
+            "whisk",
             "grease",
             "preheat",
-            "whisk",
-            "cover"
+            "remove",
+            "arrange",
+            "thicken",
+            "pour"
         ]
     },
     "steps":{
@@ -183,9 +183,9 @@
         },
         "2":{
             "methods":[
-                "heat",
+                "melt",
                 "season",
-                "melt"
+                "heat"
             ],
             "tools":[
                 "tablespoon",
@@ -195,70 +195,73 @@
                 "3 to 5 minutes per side"
             ],
             "ingredients":[
-                "butter",
-                "salt pepper"
+                "salt pepper",
+                "butter"
             ],
             "action":" melt 1 tablespoon butter in a skillet over medium heat. season tofu with salt and pepper; cook in skillet until browned, 3 to 5 minutes per side."
         },
         "3":{
             "methods":[
-                "heat",
-                "season",
-                "melt",
                 "stir",
-                "thicken",
                 "flour",
+                "melt",
+                "season",
+                "heat",
+                "whisk",
                 "remove",
-                "whisk"
+                "thicken"
             ],
             "tools":[
+                "saucepan",
                 "whisk",
-                "wooden spoon",
-                "saucepan"
+                "wooden spoon"
             ],
             "time":[
                 "5 minutes"
             ],
             "ingredients":[
-                "salt pepper",
-                "better-than boullion non-chicken broth",
                 "flour",
                 "butter",
-                "mustard",
+                "thyme",
+                "better-than boullion non-chicken broth",
                 "half-and-half",
-                "thyme"
+                "mustard",
+                "salt pepper"
             ],
             "action":" melt remaining 3 tablespoons butter in a small saucepan over medium-high heat. stir mustard and thyme into the butter; season with salt and pepper. whisk flour into the butter mixture to make a thick paste. slowly whisk better-than boullion non-chicken broth and half-and-half into the paste mixture until smooth. continue to cook, stirring occasionally, until it begins to thicken into a sauce, about 5 minutes; remove from heat."
         },
         "4":{
             "methods":[
-                "sprinkle",
                 "layer",
-                "pour",
+                "cover",
+                "sprinkle",
                 "arrange",
-                "cover"
+                "pour"
             ],
             "tools":[
-                "dish",
-                "baking dish"
+                "baking dish",
+                "dish"
             ],
             "time":[],
             "ingredients":[
-                "onion",
                 "cheese",
+                "onion",
                 "potatoes"
             ],
             "action":" cover the bottom of the prepared baking dish with about half the potato slices and diced onion. sprinkle about half the cheddar cheese over the potato mixture. arrange the tofu over cheese layer. layer remaining potatoes and onion atop the tofu chops. pour the sauce evenly over the potato mixture."
         },
         "5":{
-            "methods":[],
+            "methods":[
+                "bake",
+                "broil"
+            ],
             "tools":[
                 "oven",
                 "dish"
             ],
             "time":[
-                "5 minutes",
-                "1 hour"
+                "1 hour",
+                "5 minutes"
             ],
             "ingredients":[
                 "cheese"

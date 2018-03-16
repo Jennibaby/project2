@@ -133,14 +133,14 @@
         }
     },
     "Tools":[
-        "oven",
-        "baking dish",
-        "dish",
         "wooden spoon",
-        "skillet",
-        "tablespoon",
+        "whisk",
+        "dish",
         "saucepan",
-        "whisk"
+        "baking dish",
+        "tablespoon",
+        "skillet",
+        "oven"
     ],
     "Methods":{
         "Primary cooking method":[
@@ -148,21 +148,21 @@
             "broil"
         ],
         "other method":[
-            "heat",
             "season",
-            "melt",
-            "sprinkle",
             "layer",
+            "heat",
             "pour",
             "stir",
-            "thicken",
+            "grease",
+            "whisk",
+            "sprinkle",
             "flour",
             "remove",
-            "arrange",
-            "grease",
+            "cover",
+            "thicken",
+            "melt",
             "preheat",
-            "whisk",
-            "cover"
+            "arrange"
         ]
     },
     "steps":{
@@ -175,10 +175,10 @@
                 "preheat"
             ],
             "tools":[
-                "tablespoon",
                 "oven",
-                "baking dish",
-                "dish"
+                "tablespoon",
+                "dish",
+                "baking dish"
             ],
             "time":[],
             "action":"preheat oven to 350 degrees f (175 degrees c). grease a 9x13-inch baking dish with 1 tablespoon butter."
@@ -189,9 +189,9 @@
                 "salt pepper"
             ],
             "methods":[
-                "heat",
                 "season",
-                "melt"
+                "melt",
+                "heat"
             ],
             "tools":[
                 "tablespoon",
@@ -204,28 +204,28 @@
         },
         "3":{
             "ingredients":[
-                "salt pepper",
-                "chicken broth",
-                "flour",
                 "butter",
+                "thyme",
                 "mustard",
+                "flour",
+                "salt pepper",
                 "half-and-half",
-                "thyme"
+                "chicken broth"
             ],
             "methods":[
-                "heat",
                 "season",
-                "melt",
+                "heat",
                 "stir",
-                "thicken",
+                "whisk",
                 "flour",
                 "remove",
-                "whisk"
+                "thicken",
+                "melt"
             ],
             "tools":[
-                "whisk",
                 "wooden spoon",
-                "saucepan"
+                "saucepan",
+                "whisk"
             ],
             "time":[
                 "5 minutes"
@@ -239,11 +239,11 @@
                 "potatoes"
             ],
             "methods":[
-                "sprinkle",
                 "layer",
                 "pour",
-                "arrange",
-                "cover"
+                "sprinkle",
+                "cover",
+                "arrange"
             ],
             "tools":[
                 "dish",
@@ -256,14 +256,17 @@
             "ingredients":[
                 "cheese"
             ],
-            "methods":[],
+            "methods":[
+                "bake",
+                "broil"
+            ],
             "tools":[
-                "oven",
-                "dish"
+                "dish",
+                "oven"
             ],
             "time":[
-                "5 minutes",
-                "1 hour"
+                "1 hour",
+                "5 minutes"
             ],
             "action":"bake in preheated oven for 1 hour. top dish with remaining cheddar cheese, switch oven to broil, and continue baking until the top is browned and bubbly, about 5 minutes."
         }

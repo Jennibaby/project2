@@ -180,9 +180,11 @@ class parser(object):
                 if t in keyWords.primaryMethodsList:
                     self.primaryMethods.append(t)
 
-                if t in keyWords.methodList and t not in keyWords.primaryMethodsList:
-                    self.methods.append(t)
+                if t in keyWords.methodList:
                     methodStep.append(t)
+                    if t not in keyWords.primaryMethodsList:
+                        self.methods.append(t)
+
                     if t in keyWords.method2Tool:
                         self.tools.append(keyWords.method2Tool[t])
                         toolsStep.append(keyWords.method2Tool[t])
@@ -198,7 +200,7 @@ class parser(object):
                 if t in keyWords.primaryMethodsList:
                     self.primaryMethods.append(t)
 
-                if t in keyWords.methodList and t not in keyWords.primaryMethodsList:
+                if t in keyWords.methodList:
 
                     if t == "salted" or t == "salty":
                         tmp = t
@@ -211,8 +213,10 @@ class parser(object):
                     if tmp == "par":
                         tmp = "pare"
 
-                    self.methods.append(tmp)
                     methodStep.append(tmp)
+                    if tmp not in keyWords.primaryMethodsList:
+                        self.methods.append(tmp)
+
                     if tmp in keyWords.method2Tool:
                         self.tools.append(keyWords.method2Tool[tmp])
                         toolsStep.append(keyWords.method2Tool[tmp])
